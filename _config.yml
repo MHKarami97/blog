@@ -34,8 +34,10 @@ permalink: /:categories/:title/
 paginate: 5 # amount of posts to show
 paginate_path: /page:num/
 timezone: IR
+
 lang: fa
 dir: rtl
+direction: rtl
 
 # Your website URL (e.g. http://barryclark.github.io or http://www.barryclark.co)
 # Used for Sitemap.xml and your RSS feed
@@ -126,6 +128,8 @@ defaults:
       comments: true
       share: true
       related: true
+      lang: fa
+      direction: rtl
   # _pages
   - scope:
       path: "_pages"
@@ -133,6 +137,8 @@ defaults:
     values:
       layout: single
       author_profile: true
+      lang: fa
+      direction: rtl
 
 category_archive:
   type: liquid
