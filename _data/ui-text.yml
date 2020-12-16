@@ -1397,7 +1397,7 @@ fa: &DEFAULT_FA
   toc_label                  : "در این صفحه"
   ext_link_label             : "لینک مستقیم"
   less_than                  : " "
-  minute_read                : "(طول مطالعه (دقیقه"
+  minute_read                : "طول مدت مطاله بر اساس دقیقه: "
   share_on_label             : "اشتراک گذاری در"
   meta_label                 :
   tags_label                 : "تگ ها: "
@@ -1426,7 +1426,7 @@ fa: &DEFAULT_FA
   comment_error_msg          : ".متاسفانه در ارسال شما خطایی بود. لطفا مطمئن شوید تمام فیلدهای مورد نیاز تکمیل شده و دوباره امتحان کنید"
   loading_label              : "...بارگذاری"
   search_label_text          :
-  search_placeholder_text    : "...عبارت جستجوی خود را وارد کنید"
+  search_placeholder_text    : "عبارت جستجوی خود را وارد کنید"
   search_algolia_no_results  :
   results_found              : "نتایج"
   back_to_top                : "بازگشت به بالا"
