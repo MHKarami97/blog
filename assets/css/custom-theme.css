@@ -1,0 +1,12 @@
+﻿@media (min-width: 80em) {
+    .archive {
+        padding-right: 10px;
+    }
+}
+
+@media (min-width: 64em) {
+    .archive {
+        padding-right: 10px;
+    }
+}
+        
