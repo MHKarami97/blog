@@ -24,6 +24,8 @@ github_username: mhkarami97
 minimal_mistakes_skin: air
 search: true
 
+locale: "fa-IR"
+
 # Build settings
 markdown: kramdown
 remote_theme: mmistakes/minimal-mistakes
