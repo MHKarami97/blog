@@ -8,6 +8,11 @@
     {% include head.html %}
     {% include head/custom.html %}
     <link rel="icon" type="image/x-icon" href="/blog/assets/images/favicon.png">
+    <style>
+        .archive {
+            padding-right: 10px !important;
+        }
+    </style>
 </head>
 
 <body class="layout--{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %}">
