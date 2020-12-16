@@ -1397,7 +1397,7 @@ fa: &DEFAULT_FA
   toc_label                  : "در این صفحه"
   ext_link_label             : "لینک مستقیم"
   less_than                  : " "
-  minute_read                : " دقیق میانگین مدت زمان مطالعه است"
+  minute_read                : " دقیقه میانگین مدت زمان مطالعه است"
   share_on_label             : "اشتراک گذاری در"
   meta_label                 :
   tags_label                 : "تگ ها: "
