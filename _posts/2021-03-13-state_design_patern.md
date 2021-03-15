@@ -2,7 +2,7 @@
 title: "دیزاین پترن State در عمل"
 date: 2021-03-13T13:40:00-00:00
 categories:
-  -Design_Pattern
+  - Design_Pattern
 tags:
   - pattern
   - csharp
