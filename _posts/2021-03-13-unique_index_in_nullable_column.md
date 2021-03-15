@@ -2,7 +2,7 @@
 title: "استفاده از unique index در ستون با مقدار null توسط Filter Index"
 date: 2021-03-15T11:35:00-00:00
 categories:
-  -SQL
+  - SQL
 tags:
   - sql
   - index
