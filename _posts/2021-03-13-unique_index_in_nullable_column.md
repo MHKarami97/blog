@@ -37,7 +37,7 @@ tags:
 البته قبلش لینک بالا رو مطالعه کنید تا از پشتیبانی این نوع ایندکس در جدولی که میخواید مطمئن بشید
 
 <p align="center" >
-  <img src="https://i.postimg.cc/XYrxLkBZ/Screenshot-2021-03-15-104908-min.png" alt="mhkarami97" width="400" />
+  <img src="https://i.postimg.cc/SQGb22nY/Inked-Screenshot-2021-03-15-104908-min-LI.jpg" alt="mhkarami97" width="400" />
 </p>
 
 تو این قسمت کافی هست شرطی که میخواید رو بزارید
