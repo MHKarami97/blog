@@ -19,11 +19,11 @@ tags:
 توی این آموزش روش اول رو دنبال میکنیم.  
 برای این کار قبل از هر چیز نیاز به نصب کردن خود داکر هست که طبق راهنما سایت خودش میتونید پیش برید:  
 
-[https://docs.docker.com/docker-for-windows/install](https://docs.docker.com/docker-for-windows/install/)  
+[install docker](https://docs.docker.com/docker-for-windows/install/)  
 
 حالا نیاز به نصب کانتینر ردیس هست که از لینک زیر میتونید اون رو نصب کنید:  
 
-[https://hub.docker.com/_/redis](https://hub.docker.com/_/redis)  
+[redis](https://hub.docker.com/_/redis)  
 
 بعد از نصب نوبت به اجرا میرسه، برای این کار داخل ترمینال ویندوز این دستور رو وارد کنید:  
 
@@ -36,13 +36,13 @@ docker run -d -p 6379:6379 redis
 
 اگه نیاز به استفاده از ردیس در .net داشتین، میتونید از پکیج زیر استفاده کنید:  
 
-[https://github.com/StackExchange/StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis)  
+[StackExchange](https://github.com/StackExchange/StackExchange.Redis)  
 
 برای مانیتور کردن دیتابیس هم میتونید از ابزار زیر استفاده کنید:  
 
-[https://github.com/junegunn/redis-stat](https://github.com/junegunn/redis-stat)  
+[redis-stat](https://github.com/junegunn/redis-stat)  
 
 ابزار زیر هم برای مدیریت ردیس در دسترس هست:  
 
-[https://github.com/uglide/RedisDesktopManager](https://github.com/uglide/RedisDesktopManager)  
+[RedisDesktopManager](https://github.com/uglide/RedisDesktopManager)  
 
