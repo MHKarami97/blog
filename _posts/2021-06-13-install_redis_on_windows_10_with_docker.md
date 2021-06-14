@@ -46,3 +46,4 @@ docker run -d -p 6379:6379 redis
 
 [RedisDesktopManager](https://github.com/uglide/RedisDesktopManager)  
 
+[AnotherRedisDesktopManager](https://github.com/qishibo/AnotherRedisDesktopManager)  
