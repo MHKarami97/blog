@@ -47,3 +47,21 @@ docker run -d -p 6379:6379 redis
 [RedisDesktopManager](https://github.com/uglide/RedisDesktopManager)  
 
 [AnotherRedisDesktopManager](https://github.com/qishibo/AnotherRedisDesktopManager)  
+
+اگر نیاز به قرار دادن رمز عبور برای ردیس داشتید میتونید از دستور زیر استفاده کنید:  
+
+```c#
+docker run --name redis -d -p 6379:6379 redis redis-server --requirepass "12345"
+```
+
+که بخش 12345 رمز عبور شما هستش.  
+البته به این نکته هم دقت کنید:  
+``
+Warning: since Redis is pretty fast an outside user can try up to  
+150k passwords per second against a good box. This means that you should  
+use a very strong password otherwise it will be very easy to break
+``
+
+<p align="center" >
+  <img src="https://i.postimg.cc/KzgWWFbq/redis.png" alt="mhkarami97" width="400" />
+</p>
