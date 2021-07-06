@@ -49,11 +49,16 @@ baseurl: "/"
 
 # Enter your Disqus shortname (not your username) to enable commenting on posts
 # You can find your shortname on the Settings page of your Disqus account
-# comments:
-#   provider: "disqus"
+comments:
+   provider: "utterances"
 #   disqus:
 #     shortname: "mhkarami97"
 # disqus: "mhkarami97"
+utterances:
+  repo:                "mhkarami97/blog"
+  issue-term:          "pathname"
+  label:               "Comments"
+  theme:               "github-light"
 
 # Enter your Google Analytics web tracking code (e.g. UA-2110908-2) to activate tracking
 google_analytics: "G-DZM25ZLKRP"
