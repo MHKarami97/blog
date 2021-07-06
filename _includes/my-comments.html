@@ -7,14 +7,15 @@
 {% elsif provider == "utterances" %}
   {% assign utterances = site.utterances %}
   {% if utterances.repo %}
-    <script src="https://utteranc.es/client.js"
-            repo={{ utterances.repo }}
-            issue-term={{ utterances.issue-term }}
-            label={{ utterances.label }}
-            theme={{ utterances.theme }}
-            crossorigin= "anonymous"
-            async>
-    </script>
+
+<script src="https://utteranc.es/client.js"
+        repo="mhkarami97/blog"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
   {% endif %}
 {% elsif provider == "giscus" %}
   {% assign giscus = site.giscus %}
