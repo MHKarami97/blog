@@ -108,3 +108,80 @@ Start filebeat
 <p align="center" >
   <img src="/assets/img/kibana.png" alt="mhkarami97" width="600" />
 </p>
+
+یکی از ابزارهای خوب دیگه برای مدیریت لاگ، ابزاری با اسم logstash هستش.  
+توسط این ابزار میتونید لاگ های خودتون رو مدیریت کنید و کوئری های دلخواه رو روی اون اجرا کنید.  
+
+برای نصب این ابزار، از لینک زیر فایل zip رو دانلود کنید و در درایو c از حالت فشرده خارج کنید و اسم اون رو به logstash تغییر بدید.  
+
+[logstash](https://www.elastic.co/downloads/logstash) 
+
+برای اجرا این ابزار ابتدا باید فایل کانفیگ بسازید و مشخصات برنامه ای که میخواید لاگ های اون پردازش بشه رو وارد کنید.  
+برای این کار داخل پوشه config فایلی بطور مثال با اسم `iis.conf` بسازید.  
+برای مدیریت لاگ های iis میتونید کانفیگ زیر رو قرار بدید.  
+
+```
+input {
+	file {
+		type => "IISLog"
+		path => "C:/inetpub/logs/LogFiles/W3SVC*/*.log"
+		start_position => "beginning"
+	}
+}
+
+filter {
+
+	# ignore log comments
+	if [message] =~ "^#" {
+		drop {}
+	}
+ 
+ 	# check that fields match your IIS log settings
+	grok {
+        match => ["message", "%{TIMESTAMP_ISO8601:log_timestamp} %{IPORHOST:site} %{WORD:method} %{URIPATH:page} %{NOTSPACE:querystring} %{NUMBER:port} %{NOTSPACE:username} %{IPORHOST:clienthost} %{NOTSPACE:useragent} (%{URI:referer})? %{NUMBER:response} %{NUMBER:subresponse} %{NUMBER:scstatus} %{NUMBER:time_taken}"]
+	}
+  
+	# set the event timestamp from the log
+	# https://www.elastic.co/guide/en/logstash/current/plugins-filters-date.html
+	date {
+		match => [ "log_timestamp", "YYYY-MM-dd HH:mm:ss" ]
+		timezone => "Etc/UCT"
+	}
+	
+	# matches the big, long nasty useragent string to the actual browser name, version, etc
+	# https://www.elastic.co/guide/en/logstash/current/plugins-filters-useragent.html
+	useragent {
+		source=> "useragent"
+		prefix=> "browser_"
+	}
+	
+	mutate {
+		remove_field => [ "log_timestamp"]
+	}
+}
+
+# output logs to console and to elasticsearch
+output {
+    stdout { codec => rubydebug }
+	elasticsearch { hosts => ["localhost:9200"] }
+}
+```
+
+برای مطالعه بیشتر درباره کانفیگ میتونید لینک زیر رو مطالعه کنید.  
+
+[configuration](https://www.elastic.co/guide/en/logstash/current/configuration.html) 
+
+حالا به پوشه bin برید و دستور زیر رو وارد کنید تا ابزار شروع به کار کنه:  
+
+```
+logstash.bat -f C:\logstash\config\iis.conf
+```
+
+بعد از انجام کار بالا نیاز به تعریف index در آدرس زیر هستش که نام کانفیگ اضافه شده در قسمت pattern ها نشون داده میشه
+
+```
+http://localhost:5601/app/management/kibana/indexPatterns
+```
+
+با انتخاب اون و انجام مراحل میتونید متغیرهایی که نیاز به کوئری زدن و بررسی دارید رو مشخص کنید.  
+البته ابزار filebeat برای مدیریت لاگ iis راه اندازی راحت تری داره.
