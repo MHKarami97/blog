@@ -61,7 +61,7 @@ utterances:
   theme: "github-light"
   
 giscus:
-  repo:                "MHKarami97/blog"
+  repo:                "MHKarami97/MHKarami97.github.io"
   repo-id:             "MDEwOlJlcG9zaXRvcnkzMjE5OTM3NDM="
   category:            "General"
   category-id:         "DIC_kwDOEzE8D84B-PIL"
