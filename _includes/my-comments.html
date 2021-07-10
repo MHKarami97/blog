@@ -18,16 +18,16 @@
   {% endif %}
 {% elsif provider == "giscus" %}
   {% assign giscus = site.giscus %}
-  {% if giscus.repo %}
+  {% if site.giscus.repo %}
     <script src="https://giscus.app/client.js"
-            data-repo={{ giscus.repo }}
-            data-repo-id={{ giscus.repo-id }}
-            data-category={{ giscus.category }}
-            data-category-id={{ giscus.category-id }}
-            data-mapping={{ giscus.mapping }}
-            data-reactions-enabled={{ giscus.reaction-enabled }}
-            data-theme={{ giscus.theme }}
-            crossorigin={{ giscus.crossorigin }}
+            data-repo={{ site.giscus.repo }}
+            data-repo-id={{ site.giscus.repo-id }}
+            data-category={{ site.giscus.category }}
+            data-category-id={{ site.giscus.category-id }}
+            data-mapping={{ site.giscus.mapping }}
+            data-reactions-enabled={{ site.giscus.reaction-enabled }}
+            data-theme={{ site.giscus.theme }}
+            crossorigin={{ site.giscus.crossorigin }}
             async>
     </script>
   {% endif %}
