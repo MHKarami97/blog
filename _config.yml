@@ -52,24 +52,37 @@ baseurl: "/"
 
 # Enter your Disqus shortname (not your username) to enable commenting on posts
 # You can find your shortname on the Settings page of your Disqus account
-comments:
-   provider: "giscus"
+#comments:
+#   provider: "giscus"
+   
+repository: "MHKarami97/blog"
 
-utterances:
-  repo: "MHKarami97/blog"
-  issue-term: "pathname"
-  label: "Comments"
-  theme: "github-light"
+comments:
+  provider: "giscus"
+  giscus:
+    repo_id              : "MDEwOlJlcG9zaXRvcnkzMjE5OTM3NDM="
+    category_name        : "General"
+    category_id          : "DIC_kwDOEzE8D84B-PIL"
+    discussion_term      : "pathname"
+    reactions_enabled    : "1"
+    theme                : "light"
+    crossorigin          : "anonymous" 
+
+#utterances:
+#  repo: "MHKarami97/blog"
+#  issue-term: "pathname"
+#  label: "Comments"
+#  theme: "github-light"
   
-giscus:
-  repo: "MHKarami97/blog"
-  repo-id: "MDEwOlJlcG9zaXRvcnkzMjE5OTM3NDM="
-  category: "General"
-  category-id: "DIC_kwDOEzE8D84B-PIL"
-  mapping: "pathname"
-  reaction-enabled: "1"
-  theme: "light"
-  crossorigin: "anonymous"  
+#giscus:
+#  repo: "MHKarami97/blog"
+#  repo-id: "MDEwOlJlcG9zaXRvcnkzMjE5OTM3NDM="
+#  category: "General"
+#  category-id: "DIC_kwDOEzE8D84B-PIL"
+#  mapping: "pathname"
+#  reaction-enabled: "1"
+#  theme: "light"
+#  crossorigin: "anonymous"  
   
 #   disqus:
 #     shortname: "mhkarami97"
