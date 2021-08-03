@@ -22,7 +22,7 @@ github_username: mhkarami97
 minimal_mistakes_skin: air
 search: true
 og_image: /assets/images/favicon.png
-teaser: /assets/images/favicon.png
+# teaser: /assets/images/favicon.png
 logo: /assets/images/favicon.png
 
 locale: "fa-IR"
