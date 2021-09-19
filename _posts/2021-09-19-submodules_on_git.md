@@ -75,6 +75,12 @@ git submodule add https://github.com/MHKarami97/Submodules
   <img src="/assets/img/submodules9-min.png" alt="mhkarami97" width="600" />
 </p>
 
+ماژول های در ادیتور Rider :  
+
+<p align="center" >
+  <img src="/assets/img/submodules10-min.png" alt="mhkarami97" width="600" />
+</p>
+
 با این کار پروژه شما آماده استفاده هست.  
 
 داکیومنت اصلی:  
