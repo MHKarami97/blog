@@ -81,11 +81,6 @@ git submodule add https://github.com/MHKarami97/Submodules
 
 [Git-Tools-Submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules)  
 
-
-<p align="center" >
-  <img src="/assets/img/wac.png" alt="mhkarami97" width="600" />
-</p>
-
 لینک پروژه های ساخته شده:  
 
 [Submodules](https://github.com/MHKarami97/Submodules)  
