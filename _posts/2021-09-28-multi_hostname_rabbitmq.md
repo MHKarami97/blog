@@ -54,6 +54,18 @@ private static List<string> Hosts = new()
 
 در صورتی که همین لیست را به کلاس گفته شده پاس بدهید با خطا مواجه می‌شوید و حتما باید آن را بصورت `AmqpTcpEndpoint` دربیاورید.  
 
+البته اگر از آدرس‌ها بصورت `uri` استفاده می‌کنید، حتما http را قبل از آدرس ها قرار دهید.  
+
+```c#
+private static List<string> Hosts = new()
+{
+    "http://192.168.99.100:30000",
+    "https://192.168.99.100:30002"
+};
+```
+
+همچنین برای بهبود عملکرد می‌توانید در کانفیگ مقدار `AutomaticRecoveryEnabled` را برابر `True` قرار بدهید.  
+
 اطلاعات بیشتر:  
 
 [rabbitmq](https://www.rabbitmq.com/dotnet-api-guide.html#endpoints-list)  
