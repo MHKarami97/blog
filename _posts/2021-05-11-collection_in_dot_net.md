@@ -2,7 +2,7 @@
 title: "مجموعه ها و ساختارهای داده در .net"
 date: 2021-05-11T23:00:00-00:00
 categories:
-  - net
+  - Net
 tags:
   - collection
   - dataStructures
