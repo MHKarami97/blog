@@ -58,7 +58,7 @@ baseurl: "/"
 repository: "MHKarami97/blog"
 
 comments:
-  provider: "giscus"
+  provider: ""
   giscus:
     repo_id              : "MDEwOlJlcG9zaXRvcnkzMjE5OTM3NDM="
     category_name        : "General"
