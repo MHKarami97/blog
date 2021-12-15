@@ -76,3 +76,9 @@ public class Example
     }
 }
 ```
+
+اطلاعات بیشتر:  
+
+[stringBuilder](https://docs.microsoft.com/en-us/dotnet/api/system.text.stringbuilder?view=net-6.0)  
+
+[getChunks](https://docs.microsoft.com/en-us/dotnet/api/system.text.stringbuilder.getchunks?view=net-6.0)  
