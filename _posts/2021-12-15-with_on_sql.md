@@ -30,21 +30,24 @@ AS
 -- Define the CTE query.  
 (  
     SELECT  SalesPersonID,
-                 SalesOrderID,
-                 YEAR(OrderDate) AS SalesYear  
+            SalesOrderID,
+            YEAR(OrderDate) AS SalesYear  
     FROM Sales.SalesOrderHeader  
     WHERE SalesPersonID IS NOT NULL  
 )  
 
 -- Define the outer query referencing the CTE name.  
 SELECT  SalesPersonID,
-             COUNT(SalesOrderID) AS TotalSales,
-             SalesYear  
+        COUNT(SalesOrderID) AS TotalSales,
+        SalesYear  
 FROM Sales_CTE  
 GROUP BY SalesYear, SalesPersonID  
 ORDER BY SalesPersonID, SalesYear; 
 ```
 
+داخل CTE به هیچ عنوان نمیتوانیم از ORDER BY استفاده کنیم مگر آنکه با TOP یا OFFSET FETCH بیاید.  
+تمام فیلدهای داخل CTE باید دارای نام باشند به عبارتی no column name نباشند.  
+تمام اسامی فیلدهای داخل CTE باید نام های منحصر به فرد داشته باشند.  
 
 اطلاعات بیشتر:  
 [with](https://docs.microsoft.com/en-us/sql/t-sql/queries/with-common-table-expression-transact-sql?view=sql-server-ver15)  
