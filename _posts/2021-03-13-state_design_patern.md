@@ -48,36 +48,36 @@ public static bool IsFirstTime { get; private set; }
 
 ```c#
 private static int GetLastDispatchedMessageIdTypeCode()
-        {
-            int result;
+{
+    int result;
 
-            switch (FailOverService.IsBeforePrimary)
-            {
-                case true when FailOverService.IsPrimary:
-                    result = PrimaryTypeCode;
-                    break;
-                
-                case true when !FailOverService.IsPrimary:
-                    result = SecondaryTypeCode;
-                    break;
-                
-                case false when !FailOverService.IsPrimary:
-                    result = SecondaryTypeCode;
-                    break;
-                
-                case false when FailOverService.IsPrimary && FailOverService.IsFirstTime:
-                    result = PrimaryTypeCode;
-                    break;
-                
-                case false when FailOverService.IsPrimary && !FailOverService.IsFirstTime:
-                    result = SecondaryTypeCode;
-                    break;
-                
-                default:
-                    throw new Exception("not valid input");
-            }
+    switch (FailOverService.IsBeforePrimary)
+    {
+        case true when FailOverService.IsPrimary:
+            result = PrimaryTypeCode;
+            break;
+        
+        case true when !FailOverService.IsPrimary:
+            result = SecondaryTypeCode;
+            break;
+        
+        case false when !FailOverService.IsPrimary:
+            result = SecondaryTypeCode;
+            break;
+        
+        case false when FailOverService.IsPrimary && FailOverService.IsFirstTime:
+            result = PrimaryTypeCode;
+            break;
+        
+        case false when FailOverService.IsPrimary && !FailOverService.IsFirstTime:
+            result = SecondaryTypeCode;
+            break;
+        
+        default:
+            throw new Exception("not valid input");
+    }
 
-            return result;
+    return result;
 }
 ```
 
@@ -93,42 +93,56 @@ private static int GetLastDispatchedMessageIdTypeCode()
 
 ```c#
 public class Context
+{
+    private State _state;
+
+    public Context()
     {
-        private State _state;
+        _state = new InitialState();
+    }
 
-        public Context()
-        {
-            _state = new InitialState();
-        }
+    public void TransitionTo(State state)
+    {
+        Logger.WriteInformationLog($"Context: Transition to {state.GetType().Name}");
 
-        public void TransitionTo(State state)
-        {
-            Logger.WriteInformationLog($"Context: Transition to {state.GetType().Name}");
+        _state = state;
+        _state.SetContext(this);
+    }
 
-            _state = state;
-            _state.SetContext(this);
-        }
-
-        public FailoverReadingTypeEnum GetState()
-        {
-            return _state.Handle();
-        }
+    public FailoverReadingTypeEnum GetState()
+    {
+        return _state.Handle();
+    }
 }
 ```
 
 کلاس State به صورت زیر:
 
 ```c#
-    public abstract class State
+public abstract class State
+{
+    protected Context Context;
+
+    public void SetContext(Context context)
     {
-        protected Context Context;
+        Context = context;
+    }
 
-        public void SetContext(Context context)
-        {
-            Context = context;
-        }
+    public abstract FailoverReadingTypeEnum Handle();
+}
+```
 
-        public abstract FailoverReadingTypeEnum Handle();
+این حالت فقط برای اجرا در حالت اول است و عملیاتی در آن انجام نمی‌شود:  
+
+```c#
+public class InitialState : State
+{
+    public override FailoverReadingTypeEnum Handle()
+    {
+        Logger.WriteInformationLog($"FailoverReadingTypeEnum change to : {FailoverReadingTypeEnum.None.ToString()}");
+        
+        return FailoverReadingTypeEnum.None;
+    }
 }
 ```
 
@@ -136,10 +150,10 @@ public class Context
 
 ```c#
 public enum FailoverReadingTypeEnum
-    {
-        None = 0,
-        Primary = 1,
-        Secondary = 2
+{
+    None = 0,
+    Primary = 1,
+    Secondary = 2
 }
 ```
 
@@ -149,13 +163,13 @@ public enum FailoverReadingTypeEnum
 
 ```c#
 public class PrimaryState : State
+{
+    public override FailoverReadingTypeEnum Handle()
     {
-        public override FailoverReadingTypeEnum Handle()
-        {
-            Logger.WriteInformationLog($"FailoverReadingTypeEnum change to : {FailoverReadingTypeEnum.Primary.ToString()}");
-            
-            return FailoverReadingTypeEnum.Primary;
-        }
+        Logger.WriteInformationLog($"FailoverReadingTypeEnum change to : {FailoverReadingTypeEnum.Primary.ToString()}");
+        
+        return FailoverReadingTypeEnum.Primary;
+    }
 }
 ```
 
@@ -165,7 +179,7 @@ public class PrimaryState : State
 ```c#
 public FailOverService(ProcessorType processorType)
 {
-            _context = new Context();
+    _context = new Context();
 }
 ```
 به این صورت میتونیم حالت رو تغییر بدیم:
@@ -182,7 +196,7 @@ _context.TransitionTo(new PrimaryState());
 ```c#
 public static FailoverReadingTypeEnum GetReadingType()
 {
-            return _context.GetState();
+    return _context.GetState();
 }
 ```
 
@@ -194,6 +208,6 @@ public static FailoverReadingTypeEnum GetReadingType()
 ```c#
 private static int GetLastDispatchedMessageIdTypeCode()
 {
-            return (int) FailOverService.GetReadingType();
+    return (int) FailOverService.GetReadingType();
 }
 ```
