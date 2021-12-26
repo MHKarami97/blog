@@ -1,6 +1,6 @@
 ---
 title: "مقداردهی به Variable در SQL توسط SELECT"
-date: 2021-12-26T11:07:00-00:00
+date: 2021-12-25T11:07:00-00:00
 categories:
   - SQL
 tags:
