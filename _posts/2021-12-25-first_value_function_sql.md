@@ -1,5 +1,5 @@
 ---
-title: "تابع First_VALUE در SQL"
+title: "تابع FIRST_VALUE در SQL"
 date: 2021-12-25T13:50:00-00:00
 categories:
   - SQL
