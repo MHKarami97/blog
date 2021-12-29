@@ -75,7 +75,7 @@ tags:
 </p>
 
 ### طراحی هسته سیستم
-
+`Use case` : `کاربر یک متن را وارد می‌کند و یک لینک رندم دریافت می‌کند`
 
  
 [منبع](https://github.com/donnemartin/system-design-primer/blob/master/solutions/system_design/pastebin/README.md)  
