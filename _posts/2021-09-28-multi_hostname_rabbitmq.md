@@ -64,6 +64,53 @@ private static List<string> Hosts = new()
 };
 ```
 
+اگر ورودی ها را بصورت زیر قرار بدهید، در مرحله تبدیل به AmqpTcpEndpoint با مشکل مواجه می‌شوید و مقدار خالی به عنوان آدرس که به معنی `localhost` است قرار داده می‌شود:  
+
+```c#
+private static List<string> Hosts = new()
+{
+    "s-mysystem-t1:30000",
+    "s-mysystem-t2:30002"
+};
+```
+
+اگر ورودی‌ها بصورت بالا باشد خروجی endpoints بصورت زیر می‌شود که اشتباه است:  
+
+```c#
+amqp://:30000
+amqp://:30002
+```
+
+راه دیگر استفاده از کد زیر است که هردو حالت ip و نام سیستم را پشتیبانی می‌کند:  
+
+```c#
+var hostNames = new List<string>();
+var hosts = "my-r1:5672,my-r2:5672,192.168.1.1:5066";
+
+if (hosts.Contains(","))
+{
+    hostNames.AddRange(hosts.Split(','));
+}
+else
+{
+    hostNames.Add(hosts);
+}
+
+var endpoints = new List<AmqpTcpEndpoint>();
+
+foreach (var hostName in hostNames)
+{
+    var temp = hostName.Split(':');
+
+    var url = temp[0];
+    var port = Convert.ToInt32(temp[1]);
+
+    endpoints.Add(new AmqpTcpEndpoint(url, port));
+}
+
+var connection = factory.CreateConnection(endpoints);
+```
+
 همچنین برای بهبود عملکرد می‌توانید در کانفیگ مقدار `AutomaticRecoveryEnabled` را برابر `True` قرار بدهید.  
 
 اطلاعات بیشتر:  
