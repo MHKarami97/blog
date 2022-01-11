@@ -152,3 +152,6 @@ private async Task<IActionResult> Execute(Task<IFlurlResponse> task)
 [getproperties](https://docs.microsoft.com/en-us/dotnet/api/system.type.getproperties?view=net-6.0)  
 
 [flurl](https://flurl.dev/docs/fluent-url/)  
+
+
+[flurl code](https://github.com/tmenier/Flurl/blob/a67bdffcd7cdebe4631b486e1abc2e741fadaa50/src/Flurl/Url.cs#L368)  
