@@ -36,6 +36,13 @@ api/MyController/GetPublicWatchItems?id=2
 api/MyController/GetPublicWatchItems?watch=0
 ```
 
+در Enum ها دقت کنید که مقدار پیشفرض آن همیشه `0` است، حتی اگر شبیه به enum بالا اصلا مقدار صفر در آن نباشد.
+
+```c#
+var e = default(MyEnum);
+Console.WriteLine(e);
+```
+
 پس یا باید مقدار آن را بررسی کنید و یا از `[Required]` استفاده کنید.  
 
 ```c#
