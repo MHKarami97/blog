@@ -62,3 +62,11 @@ public async Task<ApiResult<List<ResultVm>>> GetPublicWatchItems(MyEnum watch)
 ```c#
 api/MyController/GetPublicWatchItems/2
 ```
+
+اطلاعات بیشتر:  
+
+[ca1008](https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/ca1008) 
+
+[default-values](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/default-values)   
+
+[enum](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/enum)  
