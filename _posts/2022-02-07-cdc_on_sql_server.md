@@ -90,6 +90,14 @@ where name = 'tbl_name'
     - به‌صورت پیش‌فرض رکوردهای قدیمی‌تر از 3 روز را پاک می‌کند.
     - با هر دستور delete در حدود 5000 رکورد را حذف می‌کند.
 
+در صورت نیاز به تغییر مدت زمان پیش‌فرض 3 روز گفته شده، می‌توانید از کوئری زیر استفاده کنید و حداکثر مقدار `100 سال` یا 52494800 را قرار دهید.  
+
+```sql
+EXECUTE sys.sp_cdc_change_job @job_type='cleanup', @retention=minutes;
+```
+
+[sys-sp-cdc-change-job-transact-sql](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sys-sp-cdc-change-job-transact-sql?view=sql-server-ver15)  
+
 فانکشن‌های اضافه شده به دیتابیس، دارای نام ثابت `fn_cdc_get_all_changes_` هستند که در انتهای آن نام دیتابیس شما می‌آید. بطور مثال `fn_cdc_get_all_changes_dbo_MyTable`.  
 برای دریافت لیست تغییرات انجام شده بر روی دیتایس می‌توانید از کوئری زیر استفاده کنید:  
 
@@ -120,6 +128,32 @@ SELECT * FROM cdc.fn_cdc_get_all_changes_dbo_MyTable(@from_lsn, @to_lsn, N'all u
     - شماره 3 نشان‌دهنده update (پیش از تغییر مقادیر)
     - و شماره 4 نشان‌دهنده update (پس از تغییر مقادیر) است
   - __$update_mask: یک متغیر از جنس bit mask است که به ازای هر ستونی که مقدار گرفته باشد، 1 می‌گیرد. برای Insert و Update تمام بیت‌های آن 1 ثبت می‌شود ولی برای آپدیت، تنها ستون‌هایی که تغییر کرده‌اند مقدار 1 می‌گیرند.
+
+ستون‌های دیگر جدول نشان داده شده، ستون‌های جدول مورد نظر شما است.  
+در رابطه با این ستون‌ها به موارد زیر نیز باید توجه کنید:  
+
+  - اگر بعد از فعال کردن CDC برای یک جدول ستون‌هایی به آن اضافه شود، در CDC نادیده گرفته می‌شود.
+  - اگر بعد از فعال کردن CDC ستونی از جدول موردنظر حذف شود، در جدول CDC از این به بعد برای آن ستون Null ثبت می‌شود.
+  - اگر نوع داده یک ستون تغییر کند، تغییرات در جدول CDC هم منعکس می‌شود و به‌این‌ترتیب اطلاعات از دست نمی‌رود.
+
+توسط کوئری زیر نیز می‌توانید لیست تغییرات بر روی ستون‌ها را مشاهده کنید:  
+
+```sql
+ EXECUTE sys.sp_cdc_get_ddl_history  
+    @capture_instance = 'dbo_Person';
+```
+
+[sys-sp-cdc-get-ddl-history-transact-sql](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sys-sp-cdc-get-ddl-history-transact-sql?view=sql-server-ver15)  
+
+
+### چالش‌ها
+روش گفته شده از عملیات I/O برو روی لاگ‌های دیتابیس برای مطلع شدن از تغییرات استفاده می‌کند و کمی سربار بر روی دیتابیس قرار می‌دهد. اگرچه هیچ قفل اضافه‌ای و یا بلاکی برای عملیات دیتابیسی قرار نمی‌دهد.  
+اگر Rate تغییرات بر روی دیتابیس شما زیاد باشد، روش گفته شده خیلی برای شما مناسب نیست.  
+عملیاتی کردن روش گفته شده نسبت به روش‌های دیگر کمی سربار اضافه دارد.  
+
+مطالعه بیشتر درباره موارد گفته شده راه جایگزین:  
+
+[bryteflow](https://bryteflow.com/sql-server-change-data-capture-cdc-for-real-time-sql-server-replication/)  
 
 
 > حواستان باشد که قابلیت دیگری به اسم `Change Tracking` نیز در SQL Server وجود دارد که با این قابلیت گفته شده تفاوت دارد.  
