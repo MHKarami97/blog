@@ -1,6 +1,6 @@
 ---
 title: "باگ مقدار MilliSecond در DateTime توسط dapper"
-date: 2022-04-03T12:00:00-00:00
+date: 2022-04-02T12:00:00-00:00
 categories:
   - SQL
 tags:
