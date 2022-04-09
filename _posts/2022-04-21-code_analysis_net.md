@@ -284,6 +284,12 @@ dotnet_diagnostic.CS0162.severity = suggestion
 
 # MA0049: Type name should not match containing namespace
 dotnet_diagnostic.MA0049.severity = suggestion
+
+dotnet_diagnostic.IDE0160.severity = none
+
+dotnet_diagnostic.IDE0008.severity = none
+
+dotnet_diagnostic.MA0047.severity = none
 ```
 
 فایل زیر را می‌توانید با نام `BannedSymbols.txt` ذخیره کنید تا موارد گفته شده در آن مانند استفاده از UtcNow بجای Now اجباری شود.  
