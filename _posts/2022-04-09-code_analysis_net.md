@@ -304,6 +304,6 @@ P:System.DateTimeOffset.DateTime;Use System.DateTimeOffset.UtcDateTime instead
 لینک‌های مفید:  
 
 [editorconfig](https://editorconfig.org/)  
-[](https://docs.microsoft.com/en-us/visualstudio/ide/create-portable-custom-editor-options?view=vs-2022)  
+[create-portable-custom-editor-options](https://docs.microsoft.com/en-us/visualstudio/ide/create-portable-custom-editor-options?view=vs-2022)  
 [use-roslyn-analyzers](https://docs.microsoft.com/en-us/visualstudio/code-quality/use-roslyn-analyzers?view=vs-2022)  
 [configuration-options](https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/configuration-options)  
