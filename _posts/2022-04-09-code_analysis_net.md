@@ -65,7 +65,7 @@ tags:
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
 
-    <PackageReference Include="SecurityCodeScan" Version="3.5.4">
+    <PackageReference Include="SecurityCodeScan.VS2019" Version="5.6.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
