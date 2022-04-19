@@ -30,6 +30,7 @@ if (app.Environment.IsDevelopment())
 {
     _ = app.MapGet("/debug/routes", (IEnumerable<EndpointDataSource> endpointSources) =>
     {
+        var sb = new StringBuilder();
         var endpoints = endpointSources.SelectMany(es => es.Endpoints);
         foreach (var endpoint in endpoints)
         {
@@ -42,13 +43,17 @@ if (app.Environment.IsDevelopment())
                 _ = routeEndpoint.RoutePattern.OutboundPrecedence;
             }
 
-            var routeNameMetadata = endpoint.Metadata.OfType<Microsoft.AspNetCore.Routing.RouteNameMetadata>()
+            var routeNameMetadata = endpoint.Metadata.OfType<RouteNameMetadata>()
                 .FirstOrDefault();
             _ = routeNameMetadata?.RouteName;
 
             var httpMethodsMetadata = endpoint.Metadata.OfType<HttpMethodMetadata>().FirstOrDefault();
             _ = httpMethodsMetadata?.HttpMethods;
+
+            _ = sb.Append(string.Join("\n", endpoint));
         }
+
+        return sb.ToString();
     });
 }
 ```
