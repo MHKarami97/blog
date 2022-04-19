@@ -25,6 +25,8 @@ if (app.Environment.IsDevelopment())
 }
 ```
 
+کد دوم:  
+
 ```c#
 if (app.Environment.IsDevelopment())
 {
@@ -58,7 +60,9 @@ if (app.Environment.IsDevelopment())
 }
 ```
 
-```C#
+کد سوم:  
+
+```c#
 [Route("/-/{controller}")]
 public class InfoController : Controller
 {
