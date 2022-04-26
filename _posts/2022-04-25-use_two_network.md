@@ -28,7 +28,7 @@ tags:
 البته در عکس زیر اشتباه subnet مشخص شده است.  
 
 <p align="center" >
-  <img src="/assets/img/twoRouter2.png" alt="mhkarami97" width="600" />
+  <img src="/assets/img/twoRouter2.jpg" alt="mhkarami97" width="600" />
 </p>
 
 اکنون کافی است موارد بالا را در کدهای زیر جایگزین کنید و به ترتیب آنها را اجرا کنید.  
