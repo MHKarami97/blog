@@ -11,6 +11,13 @@ tags:
 ---
 
 برای فراخوانی یک متود از نوع Task دو روش زیر را می‌توان استفاده کرد که در این مطلب به توضیح تفاوت آنها می‌پردازیم.  
+تفاوت اصلی این دو متود در `انتشار خطا` یا `exception propagation` است.   
+در حالت دوم که await دارد، خطا در داخل Task ذخیره می‌شود و تا زمانی که به یکی از موارد `await task , task.Wait() , task.Result , task.GetAwaiter().GetResult()` نخورد، برگشت داده  نمی‌شود.  
+اما حالت اول درست زمان قبل از بقیه موارد خطا را می‌دهد. در این رابطه می‌توانید مثال آخر را مشاهده کنید.  
+
+تفاوت دیگر `سربار` استفاده از await است.  
+در صورت استفاده از await متود مورد نظر توسط کامپایلر به `state machine` تبدیل می‌شود.  
+اگر در متود شما بعد از await کد دیگری نبود، می‌توانید همان Task را برگردانید و از این سربار جلوگیری کنید.  
 
 
 ```c#
@@ -27,6 +34,11 @@ private async Task TestAsync()
 
 ---
 
+در صورتی که متود مورد نظر را داخل `using` یا `Scope` استفاده کرده باشید، نباید از حالت بدون await استفاده کنید.  
+
+> BUT never do inside a using, or other scoped construct where the object required by the inner call requires context to successfully complete.
+
+> In the following example, the first variation, without the await, returns a database call that escapes from the context of the database connection at the end of the method, so when the call is made, the database connection has been closed. You need the await in the second example to postpone the disposal of the database connection until the GetUserAsync call returns.
 
 ```c#
 class UserRepository
@@ -56,6 +68,7 @@ class UserRepository
 
 ---
 
+در مثال زیر هم با توجه به اینکه کدام مورد را فراخوانی کنید، `Exception` رخ داده در زمان متفاوت نشان داده می‌شود.  
 
 ```c#
 private static void DoTestAsync(Func<int, Task> whatTest, int n)
@@ -91,16 +104,22 @@ private static Task AnotherTestAsync(int n)
 ```
 
 ```s
+DoTestAsync(OneTestAsync, -2)
+
 Press enter to continue
 Error: One or more errors occurred.await Task.Delay
 ```
 
 ```s
+DoTestAsync(AnotherTestAsync, -2)
+
 Error: The value needs to be either -1 (signifying an infinite timeout), 0 or a positive integer.
 Parameter name: millisecondsDelayError: 1st
 ```
 
 ---
+
+تفاوت دیگر در زمان استفاده در موارد وابسته به UI است. بطور مثال کد زیر در `WPF` که مورد گفته شده باعث `Dead Lock` می‌شود.  
 
 ```c#
 public void Form_Load(object sender, EventArgs e)
