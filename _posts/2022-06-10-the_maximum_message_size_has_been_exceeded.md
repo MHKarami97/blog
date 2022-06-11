@@ -16,23 +16,23 @@ tags:
 
 برای حل کردن این مشکل در WCF Test Client کافی است بعد از اضافه کردن آدرس خود بر روی `Config` راست کلیک کنید.  
 
-![mhkarami97](/assets/img/wcfConfig1.png)  
+<img src="/assets/img/wcfConfig1.png" alt="mhkarami97" />
 
 سپس گزینه `Edit with SvcConfigEditor` را انتخاب کنید.  
 
-![mhkarami97](/assets/img/wcfConfig2.png)  
+<img src="/assets/img/wcfConfig2.png" alt="mhkarami97" />
 
 اکنون در صفحه باز شده کافی است به تب `Binding` بروید و موارد مشخص شده را افزایش دهید.  
 
-![mhkarami97](/assets/img/wcfConfig3.png)  
+<img src="/assets/img/wcfConfig3.png" alt="mhkarami97" />
 
 اگر با انجام کار بالا مشکل شما حل نشد بر روی همان فایل راست کلیک کنید و اینبار گزینه `Copy Full Path` را بزنید تا آدرس فایل کانفیگ را بدست آورید.  
 
-![mhkarami97](/assets/img/wcfConfig4.png)  
+<img src="/assets/img/wcfConfig4.png" alt="mhkarami97" />
 
 سپس فایل مورد نظر را باز کنید و از وجود داشتن موارد زیر بر روی هردو بایندیگ مطمئن شوید.  
 
-![mhkarami97](/assets/img/wcfConfig5.png)  
+<img src="/assets/img/wcfConfig5.png" alt="mhkarami97" />
 
 ```c#
 maxBufferPoolSize="2147483647" maxBufferSize="2147483647" maxReceivedMessageSize="2147483647"
@@ -40,8 +40,8 @@ maxBufferPoolSize="2147483647" maxBufferSize="2147483647" maxReceivedMessageSize
 
 اگر باز هم مشکل شما حل نشد از سربرگ Tools گزینه `Options` را انتخاب کنید و تیک گزینه زیر را بردارید.  
 
-![mhkarami97](/assets/img/wcfConfig6.png)  
+<img src="/assets/img/wcfConfig6.png" alt="mhkarami97" />
 
 همچنین تیک گزینه زیر را فعال کنید:  
 
-![mhkarami97](/assets/img/wcfConfig6.png)  
+<img src="/assets/img/wcfConfig7.png" alt="mhkarami97" />
