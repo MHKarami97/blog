@@ -1,6 +1,6 @@
 ---
 title: "اضافه شدن خودکار Schema در DataGrip"
-date: 2022-06-16T00:00:00-00:00
+date: 2022-07-16T00:00:00-00:00
 categories:
   - Trick
 tags:
