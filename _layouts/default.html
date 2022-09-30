@@ -3,47 +3,60 @@
 
 <!doctype html>
 
-<html lang="{{ site.locale | slice: 0,2 | default: "fa" }}" class="no-js" dir="{{ site.dir }}">
+<html lang="{{ site.locale | slice: 0,2 | default: " fa" }}" class="no-js" dir="{{ site.dir }}">
+
 <head>
     {% include head.html %}
     {% include head/custom.html %}
     <link rel="icon" type="image/x-icon" href="/assets/images/favicon.png">
     <style>
-        .archive,.page {
+        .archive,
+        .page {
             padding-right: 10px !important;
         }
-        .highlight{
+
+        .highlight {
             direction: ltr;
         }
-        .list__item .archive__item a{
+
+        .list__item .archive__item a {
             text-decoration: none !important;
+        }
+
+        .e-content p img,
+        .e-content img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
         }
     </style>
 </head>
 
-<body class="layout--{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %}">
-{% include_cached skip-links.html %}
-{% include_cached browser-upgrade.html %}
-{% include_cached masthead.html %}
+<body
+    class="layout--{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %}">
+    {% include_cached skip-links.html %}
+    {% include_cached masthead.html %}
 
-<div class="initial-content">
-    {{ content }}
-</div>
+    <div class="initial-content">
+        {{ content }}
+    </div>
 
-{% if site.search == true %}
-<div class="search-content">
-    {% include_cached search/search_form.html %}
-</div>
-{% endif %}
+    {% if site.search == true %}
+    <div class="search-content">
+        {% include_cached search/search_form.html %}
+    </div>
+    {% endif %}
 
-<div id="footer" class="page__footer">
-    <footer>
-        {% include footer/custom.html %}
-        {% include_cached footer.html %}
-    </footer>
-</div>
+    <div id="footer" class="page__footer">
+        <footer>
+            {% include footer/custom.html %}
+            {% include_cached footer.html %}
+        </footer>
+    </div>
 
-{% include scripts.html %}
+    {% include scripts.html %}
 
 </body>
+
 </html>

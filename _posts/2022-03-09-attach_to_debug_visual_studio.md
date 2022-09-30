@@ -35,6 +35,14 @@ tags:
 با اینکار در هر نقطه از کد که Break Point بزارید می‌توانید آن را دیباگ کنید.  
 البته دقت کنید قابلیت دیباگ در نسخه پابلیش شده وجود داشته باشد. در غیر این صورت Break Point ها غیر فعال می‌شوند.  
 
+### دیباگ برنامه پابلیش شده در سرور دیگر
+اگر برنامه شما در سرور پابلیش شده است و می‌خواهید آن را دیباگ کنید، می‌توانید از `visual studio remote debugger` استفاده کنید.  
+کافی است این برنامه را بر روی سرور نصب کنید و سپس آن را بصورت Admin اجرا کنید.  
+اکنون کافی است شبیه به آموزش بالا که پراسس w3wp را انتخاب کردید، بجای آن نام سرور خود مثلا ss2-app-test را وارد کنید تا لیست پراسس‌های آن برای انتخاب نشان داده شود.  
+فقط دقت کنید که برنامه حتما باید در حالت Debug پابلیش شده باشد تا فایل‌های PDB برای دیباگ در دسترس باشند.  
+
+[remote-debugging](https://docs.microsoft.com/en-us/visualstudio/debugger/remote-debugging?view=vs-2022)  
+
 لینک‌های مفید:  
 
 [attach-to-running-processes-with-the-visual-studio-debugger](https://docs.microsoft.com/en-us/visualstudio/debugger/attach-to-running-processes-with-the-visual-studio-debugger?view=vs-2022)  
