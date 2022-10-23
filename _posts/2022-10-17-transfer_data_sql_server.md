@@ -91,10 +91,13 @@ WHILE (@CurrentId < @MaxId)
              [DB2].[dbo].[Request] I2 ON I1.Id = I2.Id
         WHERE I2.Id IS NULL
           AND I1.Id BETWEEN (@CurrentId + 1) AND (@CurrentId + @BatchSize)
+        ORDER BY I.DecisionId ASC
 
         SET @CurrentId += @BatchSize;
     END
 ```
+
+در کوئری بالا دقت کنید که `ORDER BY` مهم است در غیر این صورت ضمانتی برای منتقل شدن همه دیتا و همچنین ترتیب وجود ندارد. همچنین ممکن است به خطاهای ظاهرا نامشخص مثل `Duplicate Primary Key` برخورد کنید.  
 
 برای مطمئن شدن از انتقال کامل دیتا هم می‌توانید از کوئری زیر استفاده کنید. استفاده از `COUNT` راحت‌ترین راه است که البته اگر دیتا زیاد باشد کمی زمانبر می‌شود.  
 خط آخر که در واقع یک SP است بسیار سریع تعداد سطرهای جدول را نشان می‌دهد.  
@@ -105,3 +108,7 @@ SELECT COUNT(*) FROM [DB2].[dbo].[Request] WITH (NOLOCK)
 
 EXEC sys.sp_spaceused @objname = N'[dbo].[Request]'
 ```
+
+البته SP گفته شده در زمان انتقال مقدار را نشان نمی‌دهد. مخصوصا اگر batchSize بزرگ باشد. بطوری که کل جدول 500 میلیون رکورد داشت اما این SP 600 میلیون را نشان می‌داد.  
+
+[spaceused](https://learn.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-spaceused-transact-sql?view=sql-server-ver16)  
