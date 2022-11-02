@@ -50,4 +50,4 @@ scope.Complete();
 
 [transactionscopeasyncflowoption](https://learn.microsoft.com/en-us/dotnet/api/system.transactions.transactionscopeasyncflowoption?view=net-6.0)  
 
-[](https://learn.microsoft.com/en-us/dotnet/api/system.transactions.transactionscopeoption?view=net-6.0)  
+[transactionscopeoption](https://learn.microsoft.com/en-us/dotnet/api/system.transactions.transactionscopeoption?view=net-6.0)  
