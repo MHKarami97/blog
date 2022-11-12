@@ -44,4 +44,4 @@ maxBufferPoolSize="2147483647" maxBufferSize="2147483647" maxReceivedMessageSize
 
 همچنین تیک گزینه زیر را فعال کنید:  
 
-![mhkarami97](/assets/img/wcfConfig6.jpg)  
+![mhkarami97](/assets/img/wcfConfig7.jpg)  
