@@ -65,50 +65,8 @@ _channel.ExchangeDeclare(
 
 برای اضافه کردن قابلیت پردازش چندباره یک پیام هم می‌توانید از کد زیر استفاده کنید:  
 
-```csharp
-_consumer.Received += (model, result) =>
-{
-    try
-    {
-        var message = Encoding.UTF8.GetString(result.Body.ToArray());
+[reprocess_to_rabbitmq](https://blog.mhkarami97.ir/net/reprocess_to_rabbitmq/)  
 
-        // Do some work on message
-        var isSuccessful = Received.Invoke(message);
-
-        if (isSuccessful)
-        {
-            counter = 0;
-
-            _channel.BasicAck(result.DeliveryTag, false);
-
-            return;
-        }
-
-        if (counter > config.RequeueMessageRetryCount)
-        {
-            counter = 0;
-
-            // Requeue = false is important
-            _channel.BasicReject(result.DeliveryTag, false);
-
-            return;
-        }
-    }
-    catch (Exception ex)
-    {
-        LogError(ex);
-    }
-
-    counter++;
-
-    // Prevent Very fast failed message process
-    Thread.Sleep(WaitInNackOnMilliSecond);
-
-     // Requeue = true is important to reprocess
-    _channel.BasicNack(result.DeliveryTag, false, true);
-};
-
-_channel.BasicConsume(config.Queue, false, _consumer);
-```
+توضیحات بیشتر:  
 
 [dlx](https://www.rabbitmq.com/dlx.html)  
