@@ -85,6 +85,8 @@ namespace External.Writer
 یکی از راه‌ها قرار دادن صف داخلی در کلاس Base بالا است تا تمام تردها بر روی آن بنویسند و ربیت از روی آن پیام‌ها را برداشته و منتشر کند اما این روش ممکن است باعث ازبین رفتن دیتا در صورت ریست ایجنت شود.  
 راه دیگر استفاده از روش بالا است که باعث می‌شود متغیر Static که همان کلاس ما است به ازای هر ترد مقدار منحصر به فرد داشته باشد که مشکل گفته شده را حل می‌کند.  
 
+دقت کنید که aticattribute گفته شده را بر روی آبجکتی که Lock توسط آن انجام می‌شود قرار ندهید. در غیر این صورت با خطا Null بودن آن مواجه می‌شوید.  
+
 [system threadstaticattribute](https://learn.microsoft.com/en-us/dotnet/api/system.threadstaticattribute?view=net-7.0)  
 
 [rabbitmq connections](https://www.rabbitmq.com/connections.html)  
