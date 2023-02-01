@@ -22,7 +22,6 @@ var json = MessagePackSerializer.ConvertToJson(bytes);
 Console.WriteLine(json);
 ```
 
-
 [Utf8Json](https://github.com/neuecc/Utf8Json)  
 
 [MessagePack](https://github.com/neuecc/MessagePack-CSharp)  
