@@ -89,3 +89,7 @@ public void ConfigureServices(IServiceCollection services)
   - ما می تونیم شی کلاس Singleton رو  Clone  کنیم در حالی که Clone کلاس استاتیک امکان پذیر نیست.
   - ما نمی تونیم الگوی طراحی Dependency Injection رو با استفاده از کلاس Static پیاده سازی کنیم چون کلاس استاتیک واسط نیست.
   - Singleton به معنای یک شی single واحد در طول چرخه حیات برنامه هست ، بنابراین دامنه دسترسی در سطح برنامه است. ولی کلاس استاتیک هیچ اشاره گر Object نداره ، بنابراین دامنه دسترسی در سطح Domain App هست. 
+
+روش دیگر استفاده:  
+
+[Singleton](https://blog.mhkarami97.ir/net/lazy_to_create_singleton/)  
