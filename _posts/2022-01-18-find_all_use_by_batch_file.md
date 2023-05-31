@@ -1,6 +1,5 @@
 ---
 title: "پیدا کردن تمام خطوط استفاده شده در فایل‌ها توسط Bath script"
-date: 2022-01-15T09:00:00-00:00
 categories:
   - Trick
 tags:

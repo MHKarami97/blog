@@ -1,6 +1,5 @@
 ---
 title: "استفاده از serilog برای لاگ کردن در دیتابیس Sql Server"
-date: 2021-07-11T15:49:00-00:00
 categories:
   - Log
 tags:

@@ -1,6 +1,5 @@
 ---
 title: "مشاهده YouTube بدون ابزار خاص"
-date: 2023-01-07T00:00:00-00:00
 categories:
   - Trick
 tags:

@@ -1,6 +1,5 @@
 ---
 title: "دانستن کوئری‌های زمان‌بر در SQL Server"
-date: 2022-01-04T11:07:00-00:00
 categories:
   - SQL
 tags:

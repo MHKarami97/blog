@@ -1,6 +1,5 @@
 ---
 title: "نصب Github Copilot در Jetbrains"
-date: 2022-06-13T00:00:00-00:00
 categories:
   - IDE
 tags:

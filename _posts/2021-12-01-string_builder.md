@@ -1,6 +1,5 @@
 ---
 title: "استفاده از StringBuilder در .net"
-date: 2021-12-01T10:49:00-00:00
 categories:
   - Net
 tags:

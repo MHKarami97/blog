@@ -1,6 +1,5 @@
 ---
 title: "ویرایش PSD توسط .Net"
-date: 2023-01-03T00:00:00-00:00
 categories:
   - Net
 tags:

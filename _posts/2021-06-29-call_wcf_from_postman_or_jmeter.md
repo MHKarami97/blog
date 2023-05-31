@@ -1,6 +1,5 @@
 ---
 title: "فراخوانی کردن WCF در Postman و jmeter"
-date: 2021-06-29T10:18:00-00:00
 categories:
   - Develop
 tags:

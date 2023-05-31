@@ -1,6 +1,5 @@
 ---
 title: "منتقل کردن دیتا به دیتابیس جدید در SQL Server"
-date: 2022-10-17T00:00:00-00:00
 categories:
   - Sql
 tags:

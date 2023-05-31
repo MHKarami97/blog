@@ -1,6 +1,5 @@
 ---
 title: "استفاده از submodules در git"
-date: 2021-09-19T15:24:00-00:00
 categories:
   - Github
 tags:

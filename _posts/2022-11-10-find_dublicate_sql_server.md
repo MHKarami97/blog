@@ -1,6 +1,5 @@
 ---
 title: "پیدا کردن موارد تکراری در دیتابیس SQL Server"
-date: 2022-11-10T00:00:00-00:00
 categories:
   - SQL
 tags:

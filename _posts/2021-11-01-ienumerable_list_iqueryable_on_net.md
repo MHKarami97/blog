@@ -1,6 +1,5 @@
 ---
 title: "مقایسه ienumerable و iqueryable و list"
-date: 2021-11-01T14:39:00-00:00
 categories:
   - Net
 tags:

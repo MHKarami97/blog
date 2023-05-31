@@ -1,6 +1,5 @@
 ---
 title: "باگ میلیون دلاری"
-date: 2021-03-08T15:50:00-00:00
 categories:
   - Bug
 tags:

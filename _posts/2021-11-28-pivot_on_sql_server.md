@@ -1,6 +1,5 @@
 ---
 title: "استفاده از pivot در SQL Server"
-date: 2021-11-24T09:44:00-00:00
 categories:
   - SQL
 tags:

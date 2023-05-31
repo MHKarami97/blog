@@ -1,6 +1,5 @@
 ---
 title: "مانیتور کردن لاگ های IIS توسط ElasticSearch و Kibana"
-date: 2021-07-07T10:52:00-00:00
 categories:
   - IIS
 tags:

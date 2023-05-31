@@ -1,6 +1,5 @@
 ---
 title: "بررسی Thread Sleep در .Net"
-date: 2022-05-22T00:00:00-00:00
 categories:
   - Net
 tags:

@@ -1,6 +1,5 @@
 ---
 title: "طراحی سیستم Bitly"
-date: 2021-12-20T08:09:00-00:00
 categories:
   - SystemDesign
 tags:

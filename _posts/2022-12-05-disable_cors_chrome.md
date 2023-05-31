@@ -1,6 +1,5 @@
 ---
 title: "غیرفعال سازی CORS در Chrome"
-date: 2022-12-05T00:00:00-00:00
 categories:
   - Trick
 tags:

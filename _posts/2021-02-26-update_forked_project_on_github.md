@@ -1,6 +1,5 @@
 ---
 title: "آپدیت کردن پروژه Forked شده در گیتهاب"
-date: 2021-02-26T19:44:00-00:00
 categories:
   - Github
 tags:

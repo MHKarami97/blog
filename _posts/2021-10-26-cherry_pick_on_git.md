@@ -1,6 +1,5 @@
 ---
 title: "انتقال یک کامیت به برنچ دیگر در Git با Cherry Pick"
-date: 2021-10-26T11:10:00-00:00
 categories:
   - Git
 tags:

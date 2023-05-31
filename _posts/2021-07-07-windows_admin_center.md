@@ -1,6 +1,5 @@
 ---
 title: "معرفی ابزار Windows Admin Center"
-date: 2021-07-07T14:14:00-00:00
 categories:
   - Windows
 tags:

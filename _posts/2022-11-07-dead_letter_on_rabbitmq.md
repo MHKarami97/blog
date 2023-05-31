@@ -1,6 +1,5 @@
 ---
 title: "استفاده از Dead Letter Exchange در RabbitMQ"
-date: 2022-11-07T00:00:00-00:00
 categories:
   - Net
 tags:

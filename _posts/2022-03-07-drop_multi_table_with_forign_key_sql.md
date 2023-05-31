@@ -1,6 +1,5 @@
 ---
 title: "پاک کردن تمامی جداول دارای کلید خارجی در SQL Server"
-date: 2022-03-07T12:00:00-00:00
 categories:
   - SQL
 tags:

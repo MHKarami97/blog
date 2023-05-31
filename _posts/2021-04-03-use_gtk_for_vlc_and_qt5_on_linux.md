@@ -1,6 +1,5 @@
 ---
 title: "استفاده از GTK در نرم افزار های QT در لینوکس"
-date: 2021-04-03T09:55:00-00:00
 categories:
   - Linux
 tags:

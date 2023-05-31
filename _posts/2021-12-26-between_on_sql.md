@@ -1,6 +1,5 @@
 ---
 title: "دستور BETWEEN در SQL"
-date: 2021-12-26T11:07:00-00:00
 categories:
   - SQL
 tags:

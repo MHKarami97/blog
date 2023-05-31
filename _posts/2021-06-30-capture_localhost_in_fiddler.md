@@ -1,6 +1,5 @@
 ---
 title: "چگونگی Capture کردن ترافیک localhost در Fiddler"
-date: 2021-06-30T11:25:00-00:00
 categories:
   - Web
 tags:

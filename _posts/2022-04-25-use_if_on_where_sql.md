@@ -1,6 +1,5 @@
 ---
 title: "استفاده از IF در دستور WHERE SQL"
-date: 2022-04-25T12:00:00-00:00
 categories:
   - SQL
 tags:

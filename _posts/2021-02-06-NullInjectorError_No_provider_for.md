@@ -1,6 +1,5 @@
 ---
 title: "خطا null injector در زمان استفاده از service در انگولار"
-date: 2021-02-06T13:00:00-00:00
 categories:
   - Angular
 tags:

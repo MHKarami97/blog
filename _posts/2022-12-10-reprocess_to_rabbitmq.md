@@ -1,6 +1,5 @@
 ---
 title: "اضافه کردن قابلیت پردازش دوباره پیام به Rabbitmq"
-date: 2022-12-10T00:00:00-00:00
 categories:
   - Net
 tags:

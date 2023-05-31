@@ -1,6 +1,5 @@
 ---
 title: "نصب درایور گرافیک Nvidia در لینوکس"
-date: 2021-03-26T21:30:00-00:00
 categories:
   - Linux
 tags:

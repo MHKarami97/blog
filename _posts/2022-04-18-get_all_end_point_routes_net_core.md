@@ -1,6 +1,5 @@
 ---
 title: "دریافت تمام EndPoint‌ها در برنامه .Net Core"
-date: 2022-04-18T12:00:00-00:00
 categories:
   - Net
 tags:

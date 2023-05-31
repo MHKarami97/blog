@@ -1,6 +1,5 @@
 ---
 title: "الگوی Chain Of Responsibility"
-date: 2021-07-14T17:00:00-00:00
 categories:
   - DesignPattern
 tags:

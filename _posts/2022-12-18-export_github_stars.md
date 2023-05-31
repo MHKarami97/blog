@@ -1,6 +1,5 @@
 ---
 title: "خروجی گرفتن از لیست Stars در Github"
-date: 2022-12-18T00:00:00-00:00
 categories:
   - Trick
 tags:

@@ -1,6 +1,5 @@
 ---
 title: "توقف یا Kill کردن یک سرویس در ویندوز"
-date: 2022-03-12T12:00:00-00:00
 categories:
   - Windows
 tags:

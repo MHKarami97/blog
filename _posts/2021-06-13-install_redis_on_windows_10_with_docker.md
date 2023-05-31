@@ -1,6 +1,5 @@
 ---
 title: "نصب redis در ویندوز 10 توسط docker"
-date: 2021-06-13T21:49:00-00:00
 categories:
   - Docker
 tags:

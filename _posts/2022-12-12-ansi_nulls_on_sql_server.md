@@ -1,6 +1,5 @@
 ---
 title: "ANSI_NULLS در SQL Server"
-date: 2022-12-12T00:00:00-00:00
 categories:
   - SQL
 tags:

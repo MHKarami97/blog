@@ -1,6 +1,5 @@
 ---
 title: "Insert کردن Id در EntityFrameWork"
-date: 2022-12-09T00:00:00-00:00
 categories:
   - Net
 tags:

@@ -1,6 +1,5 @@
 ---
 title: "مدیریت خطا با Exception و Operation Result"
-date: 2022-01-24T09:00:00-00:00
 categories:
   - Net
 tags:

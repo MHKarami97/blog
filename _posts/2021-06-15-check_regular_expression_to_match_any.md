@@ -1,6 +1,5 @@
 ---
 title: "جستجوی بین دو کاراکتر توسط Regex"
-date: 2021-06-15T15:31:00-00:00
 categories:
   - Regex
 tags:

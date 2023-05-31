@@ -1,6 +1,5 @@
 ---
 title: "چک کردن اتصال به دیتابیس SQL توسط UDL"
-date: 2022-03-12T12:00:00-00:00
 categories:
   - SQL
 tags:

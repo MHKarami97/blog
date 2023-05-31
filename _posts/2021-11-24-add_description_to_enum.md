@@ -1,6 +1,5 @@
 ---
 title: "اضافه کردن Attribute توضیحات به Enum"
-date: 2021-11-24T09:44:00-00:00
 categories:
   - Net
 tags:

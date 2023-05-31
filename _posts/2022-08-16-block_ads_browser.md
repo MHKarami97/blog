@@ -1,6 +1,5 @@
 ---
 title: "مسدود سازی تبلیغات در مرورگر توسط UBlock Origin"
-date: 2022-08-16T00:00:00-00:00
 categories:
   - Trick
 tags:

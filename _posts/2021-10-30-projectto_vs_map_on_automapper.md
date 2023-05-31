@@ -1,6 +1,5 @@
 ---
 title: "مقایسه ProjectTo و Map در AutoMapper"
-date: 2021-10-30T16:39:00-00:00
 categories:
   - Net
 tags:

@@ -1,6 +1,5 @@
 ---
 title: "استفاده از چند Hostname در RabbitMQ در حالت Cluster"
-date: 2021-09-28T13:34:00-00:00
 categories:
   - rabbitmq
 tags:

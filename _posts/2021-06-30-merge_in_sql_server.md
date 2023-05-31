@@ -1,6 +1,5 @@
 ---
 title: "استفاده از دستور Merge در دیتابیس"
-date: 2021-06-30T13:49:00-00:00
 categories:
   - SQL
 tags:

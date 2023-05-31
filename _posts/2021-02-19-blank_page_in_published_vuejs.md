@@ -1,6 +1,5 @@
 ---
 title: "مشکل صفحه سفید خالی در پروژه vuejs منتشر شده"
-date: 2021-02-19T20:00:00-00:00
 categories:
   - Vuejs
 tags:

@@ -1,6 +1,5 @@
 ---
 title: "استفاده از فایل js خارجی در پروژه Vuejs"
-date: 2021-02-21T10:00:00-00:00
 categories:
   - Vuejs
 tags:

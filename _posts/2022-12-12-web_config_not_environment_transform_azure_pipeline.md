@@ -1,6 +1,5 @@
 ---
 title: "عدم کارکرد درست Environment در Web.config"
-date: 2022-12-12T00:00:00-00:00
 categories:
   - Net
 tags:

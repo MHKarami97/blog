@@ -1,6 +1,5 @@
 ---
 title: "استفاده از GRUB شخصی سازی شده و زیبا در حالت Dual Boot"
-date: 2021-03-25T01:20:00-00:00
 categories:
   - Linux
 tags:

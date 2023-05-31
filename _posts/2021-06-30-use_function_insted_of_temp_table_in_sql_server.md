@@ -1,6 +1,5 @@
 ---
 title: "بهبود عملکرد استفاده از Temp Table با استفاده از Function در دیتابیس"
-date: 2021-06-30T09:32:00-00:00
 categories:
   - SQL
 tags:

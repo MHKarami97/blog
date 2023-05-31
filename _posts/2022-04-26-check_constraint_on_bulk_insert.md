@@ -1,6 +1,5 @@
 ---
 title: "بررسی Constraint در زمان Bulk Insert"
-date: 2022-04-26T12:00:00-00:00
 categories:
   - SQL
 tags:

@@ -1,6 +1,5 @@
 ---
 title: "قرار دادن نام دلخواه برای DEFAULT در SQL"
-date: 2021-12-28T11:07:00-00:00
 categories:
   - SQL
 tags:

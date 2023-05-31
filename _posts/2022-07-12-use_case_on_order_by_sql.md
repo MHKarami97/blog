@@ -1,6 +1,5 @@
 ---
 title: "استفاده از شرط Case در OrderBy SQL Server"
-date: 2022-07-16T00:00:00-00:00
 categories:
   - SQL
 tags:

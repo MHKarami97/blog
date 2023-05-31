@@ -1,6 +1,5 @@
 ---
 title: "گوش دادن به آهنگ در Spotify بدون تبلیغات"
-date: 2023-01-08T00:00:00-00:00
 categories:
   - Trick
 tags:

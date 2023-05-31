@@ -1,6 +1,5 @@
 ---
 title: "تغییر Schema یک جدول در SQL Server"
-date: 2021-10-18T11:10:00-00:00
 categories:
   - SQL
 tags:

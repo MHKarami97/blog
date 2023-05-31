@@ -1,6 +1,5 @@
 ---
 title: "سریع‌ترین Json Serializer در برنامه‌نویسی"
-date: 2023-01-31T00:00:00-00:00
 categories:
   - Net
 tags:

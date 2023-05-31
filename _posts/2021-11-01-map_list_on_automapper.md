@@ -1,6 +1,5 @@
 ---
 title: "مپ کردن List در AutoMapper"
-date: 2021-11-01T09:36:00-00:00
 categories:
   - Net
 tags:

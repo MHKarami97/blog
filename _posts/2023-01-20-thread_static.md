@@ -1,6 +1,5 @@
 ---
 title: "استفاده از ThreadStatic برای شبیه سازی Scoped Dependency در C#"
-date: 2023-01-20T00:00:00-00:00
 categories:
   - Net
 tags:

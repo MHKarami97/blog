@@ -1,6 +1,5 @@
 ---
 title: "ساخت فایل proto برای GRPC Service در کتابخانه protobuf-net.Grpc"
-date: 2021-07-04T10:03:00-00:00
 categories:
   - GRPC
 tags:

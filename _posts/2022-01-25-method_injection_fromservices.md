@@ -1,6 +1,5 @@
 ---
 title: "تزریق وابستگی با FromServices"
-date: 2022-01-25T09:00:00-00:00
 categories:
   - Net
 tags:

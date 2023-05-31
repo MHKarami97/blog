@@ -1,6 +1,5 @@
 ---
 title: "بررسی CDC یا Change Data Capture در SQL Server"
-date: 2022-02-06T09:00:00-00:00
 categories:
   - SQL
 tags:

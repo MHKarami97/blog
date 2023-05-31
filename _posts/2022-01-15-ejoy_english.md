@@ -1,6 +1,5 @@
 ---
 title: "ترجمه کلمات در مرورگر توسط افزونه EJOY"
-date: 2022-01-15T09:00:00-00:00
 categories:
   - Extension
 tags:

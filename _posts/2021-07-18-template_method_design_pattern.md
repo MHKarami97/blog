@@ -1,6 +1,5 @@
 ---
 title: "الگوی Template Method"
-date: 2021-07-18T11:10:00-00:00
 categories:
   - DesignPattern
 tags:

@@ -1,6 +1,5 @@
 ---
 title: "اضافه کردن فایل Video به MarkDown"
-date: 2021-07-31T23:04:00-00:00
 categories:
   - Github
 tags:

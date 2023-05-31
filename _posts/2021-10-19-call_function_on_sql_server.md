@@ -1,6 +1,5 @@
 ---
 title: "فراخوانی Function در SQL Server"
-date: 2021-10-18T11:03:00-00:00
 categories:
   - SQL
 tags:

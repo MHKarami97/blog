@@ -1,6 +1,5 @@
 ---
 title: "پیدا کردن وابستگی‌های یک شی در SQL Server"
-date: 2022-02-06T12:00:00-00:00
 categories:
   - SQL
 tags:

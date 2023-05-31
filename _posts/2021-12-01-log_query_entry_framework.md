@@ -1,6 +1,5 @@
 ---
 title: "لاگ کردن کوئری در EntryFrameWork"
-date: 2021-12-01T10:50:00-00:00
 categories:
   - Net
 tags:

@@ -1,6 +1,5 @@
 ---
 title: "پیاده سازی Two Phase Commit یا TPC در .Net"
-date: 2021-09-28T11:03:00-00:00
 categories:
   - Net
 tags:

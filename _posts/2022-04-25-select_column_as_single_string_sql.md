@@ -1,6 +1,5 @@
 ---
 title: "یکی کردن مقادیر یک ستون در SQL"
-date: 2022-04-25T12:00:00-00:00
 categories:
   - SQL
 tags:

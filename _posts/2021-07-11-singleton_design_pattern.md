@@ -1,6 +1,5 @@
 ---
 title: "دیزاین پترن Singleton در عمل"
-date: 2021-07-11T10:00:00-00:00
 categories:
   - DesignPattern
 tags:

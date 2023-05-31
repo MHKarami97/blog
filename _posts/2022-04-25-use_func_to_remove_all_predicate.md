@@ -1,6 +1,5 @@
 ---
 title: "پاک کردن توسط Func در متود RemoveAll"
-date: 2022-04-25T12:00:00-00:00
 categories:
   - Net
 tags:

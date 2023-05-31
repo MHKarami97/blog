@@ -1,6 +1,5 @@
 ---
 title: "ایجاد http call در net core با flurl و polly"
-date: 2021-01-10T21:34:00-00:00
 categories:
   - Core
 tags:

@@ -1,6 +1,5 @@
 ---
 title: "قلمرو دید در Derived Table"
-date: 2021-12-15T08:09:00-00:00
 categories:
   - SQL
 tags:

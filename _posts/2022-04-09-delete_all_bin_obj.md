@@ -1,6 +1,5 @@
 ---
 title: "پاک کردن تمام فایل‌های Bin و Obj پروژه"
-date: 2022-04-09T12:00:00-00:00
 categories:
   - Net
 tags:

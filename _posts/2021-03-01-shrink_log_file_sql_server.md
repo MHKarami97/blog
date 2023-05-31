@@ -1,6 +1,5 @@
 ---
 title: "کم کردن حجم Log File دیتابیس در SQL Server"
-date: 2021-03-01T10:30:00-00:00
 categories:
   - SQL
 tags:

@@ -1,6 +1,5 @@
 ---
 title: "فراخوانی ToString برای تمام Attribute های یک کلاس"
-date: 2022-01-18T11:07:00-00:00
 categories:
   - Net
 tags:

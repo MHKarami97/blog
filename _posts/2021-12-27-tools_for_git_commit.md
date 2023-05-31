@@ -1,6 +1,5 @@
 ---
 title: "ابزارهای کاربردی Commit در Git"
-date: 2021-12-27T14:07:00-00:00
 categories:
   - Git
 tags:

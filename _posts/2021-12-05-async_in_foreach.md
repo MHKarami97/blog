@@ -1,6 +1,5 @@
 ---
 title: "استفاده از متد async در foreach"
-date: 2021-12-05T08:09:00-00:00
 categories:
   - Net
 tags:

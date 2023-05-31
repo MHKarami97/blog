@@ -1,6 +1,5 @@
 ---
 title: "آپدیت کردن یک جدول با استفاده از SELECT و JOIN"
-date: 2022-04-16T12:00:00-00:00
 categories:
   - SQL
 tags:

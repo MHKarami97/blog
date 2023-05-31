@@ -1,6 +1,5 @@
 ---
 title: "استفاده از Dark Mode برای فایل های pdf در مرورگر"
-date: 2021-07-04T15:52:00-00:00
 categories:
   - Trick
 tags:

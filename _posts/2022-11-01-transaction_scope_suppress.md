@@ -1,6 +1,5 @@
 ---
 title: "اجرا کردن بخشی از کد خارج از Transaction"
-date: 2022-11-01T00:00:00-00:00
 categories:
   - Net
 tags:

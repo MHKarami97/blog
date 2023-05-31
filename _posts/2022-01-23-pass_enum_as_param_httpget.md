@@ -1,6 +1,5 @@
 ---
 title: "پاس دادن Enum به عنوان ورودی به HTTP GET"
-date: 2022-01-23T09:00:00-00:00
 categories:
   - Net
 tags:

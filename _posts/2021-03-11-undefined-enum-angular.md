@@ -1,6 +1,5 @@
 ---
 title: "خطا undifiend برای select در انگولار"
-date: 2021-03-11T22:55:00-00:00
 categories:
   - Angular
 tags:

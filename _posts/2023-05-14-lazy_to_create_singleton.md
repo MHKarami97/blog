@@ -1,6 +1,5 @@
 ---
 title: "استفاده از Lazy برای ایجاد کردن کلاس Singleton"
-date: 2023-05-07T00:00:00-00:00
 categories:
   - Net
 tags:

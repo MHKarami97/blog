@@ -1,6 +1,5 @@
 ---
 title: "تست باز بودن پورت UDP و TCP در ویندوز"
-date: 2022-11-28T00:00:00-00:00
 categories:
   - Windows
 tags:
