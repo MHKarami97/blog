@@ -72,3 +72,17 @@ Console.WriteLine("end");
 
 در صورتی که در کد خود به خطا بخورید و آن را به لایه‌های بالایی هم ارسال کرده باشید باز هم متود `Dispose` فراخوانی می‌شود  و نیازی به استفاده از `finally` در کد برای فراخوانی آن نیست.  
 بطور مثال در کد بالا در هر صورت dispose در کنسول نوشته می‌شود.  
+
+در واقع کلاس `IDisposable` به کد زیر تبدیل می‌شود:  
+
+```csharp
+var tracer = new TraceLogger();
+try
+{
+  DoSomethingWith(tracer);
+}
+finally
+{
+   ((IDisposable)tracer).Dispose();
+}
+```
