@@ -61,3 +61,32 @@ Replace "core-1.1.2X" with "core-1.1.20".
 راهنما نصب :  
 
 [gettingstarted](https://github.com/github/copilot-docs/blob/main/docs/jetbrains/gettingstarted.md)  
+
+## حل خطا self signed certificate
+خطایی که ممکن است بعد از نصب این افزونه با آن مواجه شوید، خطایی با متن زیر است:  
+
+> Sign in failed. Reason: Request signInInitiate failed with message: self signed certificate in certificate chain, request id: 3, error code: -32603
+
+![mhkarami97](/assets/img/copilate_github06.jpg)  
+
+برای رفع این خطا بصورت دائم کافی است در مرورگر خود سایت github.com را باز کنید و آیکن قفل کنار آدرس سایت را بزنید و سپس به بخش `Connection is secure` بروید.  
+
+![mhkarami97](/assets/img/copilate_github01.jpg)  
+
+در این بخش بر بروی آیکن مشخص شده کلیک کنید:  
+
+![mhkarami97](/assets/img/copilate_github02.jpg)  
+
+در صفحه باز شده به تب دوم که `Details` است بروید و سپس بر روی `Export` کلیک کنید.  
+
+![mhkarami97](/assets/img/copilate_github03.jpg)  
+
+در این بخش از بخش پایین گزینه `Base64-encoded ASCII, certificate chain` را انتخاب کنید و فرمت فایل را هم خودتان از `crt` به `pem` تغییر دهید.  
+
+![mhkarami97](/assets/img/copilate_github04.jpg)  
+
+اکنون در سیستم عامل خود به بخش `Advanced System Settings` و سپس `Environment Variables` بروید و در بخش `System Variable` یک کلید جدید با نام `NODE_EXTRA_CA_CERTS` و مقدار `آدرس فایل مورد نظر` بسازید.  
+
+![mhkarami97](/assets/img/copilate_github05.jpg)  
+
+اکنون اگر یکبار IDE خود را ریست کنید می‌توانید بدون مشکل به افزونه گفته شده وارد شوید و از آن استفاده کنید.  
