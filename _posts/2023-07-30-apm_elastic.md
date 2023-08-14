@@ -13,10 +13,20 @@ Application Performance Monitoring یا به اختصار APM وظیفه نظا�
 برای استفاده کافی است کد زیر را در برنامه خود قرار دهید. در این کد از opentelementry استفاده شده است و از پروتوکل otlp برای export استفاده شده است. نسخه 7 به بعد از این پروتکل پشتیبانی می‌کند و می‌توانید از آن استفاده کنید.  
 
 ```csharp
+using OpenTelemetry;
+using OpenTelemetry.Resources;
+using OpenTelemetry.Trace;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+
+namespace Utility
+{
     public sealed class TraceLogger : IDisposable
     {
-        private Activity _activity;
-        public static readonly ActivitySource ActivitySource = new ActivitySource("My.Activity");
+        private const string Source = "My";
+        private readonly Activity _activity;
+        private static readonly ActivitySource ActivitySource = new ActivitySource(Source);
 
         public TraceLogger(string actionName)
         {
@@ -32,10 +42,33 @@ Application Performance Monitoring یا به اختصار APM وظیفه نظا�
         {
             try
             {
+                var attributes = new List<KeyValuePair<string, object>>
+                {
+                    new KeyValuePair<string, object>("deployment.environment", Source),
+                    new KeyValuePair<string, object>("host.name", Environment.MachineName)
+                };
+
                 var sdk = Sdk.CreateTracerProviderBuilder()
-                    .SetResourceBuilder(ResourceBuilder.CreateDefault().AddService(serviceName))
-                    .AddSource("my.source")
-                    .AddAspNetInstrumentation();
+                    .SetErrorStatusOnException()
+                    .SetResourceBuilder(ResourceBuilder.CreateDefault()
+                        .AddService(serviceName, serviceName)
+                        .AddAttributes(attributes)
+                        .AddEnvironmentVariableDetector())
+                    .AddSource(Source)
+                    .AddAspNetInstrumentation(a =>
+                    {
+                        a.RecordException = true;
+                    })
+                    .AddSqlClientInstrumentation(a =>
+                    {
+                        a.EnableConnectionLevelAttributes = true;
+                        a.SetDbStatement = true;
+                    })
+                    .AddHttpClientInstrumentation(a =>
+                    {
+                        a.RecordException = true;
+                        a.SetHttpFlavor = true;
+                    });
 
                 if (custom != null)
                 {
@@ -54,6 +87,17 @@ Application Performance Monitoring یا به اختصار APM وظیفه نظا�
             }
         }
     }
+}
+```
+
+```csharp
+  <package id="OpenTelemetry.Exporter.OpenTelemetryProtocol" version="1.2.0-rc5" targetFramework="net461" />
+  <package id="OpenTelemetry.Extensions.Hosting" version="1.0.0-rc9.2" targetFramework="net461" />
+  <package id="OpenTelemetry.Instrumentation.Http" version="1.0.0-rc9" targetFramework="net461" />
+  <package id="OpenTelemetry.Instrumentation.SqlClient" version="1.0.0-rc9" targetFramework="net461" />
+  <package id="OpenTelemetry.Exporter.Prometheus" version="1.2.0-rc5" targetFramework="net461" />
+  <package id="OpenTelemetry.Instrumentation.AspNet" version="1.0.0-rc9" targetFramework="net461" />
+  <package id="OpenTelemetry.Instrumentation.AspNet.TelemetryHttpModule" version="1.0.0-rc9" targetFramework="net461" />
 ```
 
 برای trace کردن هم کافی است کلاس خود را در یکی using استفاده کنید و اگر خواستید توسط متود SetTag مقادیر دلخواه را به آن اضافه کنید.  
@@ -86,6 +130,99 @@ static class Program
 }
 ```
 
+برای ثبت خطا هم می‌توانید شبیه به کد زیر در Exeption خود عمل کنید:  
+
+```csharp
+public void Critical(Exception ex)
+{
+    SetSeverity(nameof(Critical));
+    SetException(ex);
+    SerilogLogger.Fatal(ex, ex.Message);
+}
+
+private void SetSeverity(string severity)
+{
+    Activity.Current?.SetTag(nameof(severity), severity);
+}
+
+private void SetException(Exception exception)
+{
+    SetStatusCode();
+    Activity.Current?.RecordException(exception);
+}
+
+private void SetStatusCode()
+{
+    Activity.Current?.SetStatus(ActivityStatusCode.Error, "ERROR");
+}
+
+```
+
+برای اضافه کردن Tracing به سیستم هم می‌توانید از کد زیر استفاده کنید و نمودارهای آن را در kibana مشاهده کنید:  
+
+```csharp
+using System;
+using OpenTelemetry;
+using OpenTelemetry.Metrics;
+using OpenTelemetry.Resources;
+using System.Diagnostics.Metrics;
+
+namespace Utility
+{
+    public class Monitoring
+    {
+        private const string Source = "My";
+        public static readonly Meter Meter = new Meter(Source);
+
+        public static void InitOpenTelemetry(string serviceName)
+        {
+            try
+            {
+                Sdk.CreateMeterProviderBuilder()
+                    .SetResourceBuilder(ResourceBuilder.CreateDefault().AddService(serviceName, serviceName))
+                    .AddMeter(Source)
+                    .AddHttpClientInstrumentation()
+                    .AddOtlpExporter(options =>
+                    {
+                        options.Endpoint = new Uri(Configs.OtlpEndpoint);
+                        options.Headers = "Authorization= ApiKey " + Configs.OtlpAuthorizationHeader;
+                    }).Build();
+            }
+            catch (Exception e)
+            {
+                ConsoleWriter.WriteIfUserInteractive(e);
+            }
+        }
+    }
+}
+```
+
+```csharp
+private readonly Counter<long> _successMessageCounter = Monitoring.Meter.CreateCounter<long>("successMessage");
+private readonly Counter<long> _failedMessageCounter = Monitoring.Meter.CreateCounter<long>("failedMessage");
+
+
+public async Task Run(ChangeDto dto)
+{
+    using (new TraceLogger(nameof(ChangeWorker)))
+    {
+        try
+        {
+            // do work
+
+            _successMessageCounter.Add(1);
+        }
+        catch (Exception ex)
+        {
+            _logger.Critical(ex);
+            _failedMessageCounter.Add(1);
+            throw;
+        }
+    }
+}
+
+```
+
 در پنل Kibana می‌توانید Trace های خود را مشاهده کنید:  
 
 ![mhkarami97](/assets/img/apm01-min.jpg)  
@@ -105,5 +242,14 @@ static class Program
 ![mhkarami97](/assets/img/apm04-min.jpg)  
 
 
+برای اضافه کردن tracing هم کافی است از سمت چپ بالا آیکون منو و سپس Dashboard را انتخاب کنید و سپس Create Dashboard را بزنید.  
+
+![mhkarami97](/assets/img/apm05-min.jpg)  
+
+در صفحه باز شده با توجه به tracing اضافه شده یکی از آیتم‌ها بطور مثال counter-rate را انتخاب و سپس در آیتم کناری آن نام trace خود را انتخاب کنید.  
+
+![mhkarami97](/assets/img/apm06-min.jpg)  
+
 [opentelemetry otlp](https://opentelemetry.io/docs/specs/otlp/)  
-[otlp exporter](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Exporter.OpenTelemetryProtocol/README.md)  
+[exporter](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Exporter.OpenTelemetryProtocol/README.md)  
+[instrumentation](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Instrumentation.SqlClient/README.md)  
