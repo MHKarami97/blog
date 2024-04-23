@@ -58,9 +58,11 @@ services.AddDbContextFactory<OracleDbContext>(options => { options.UseOracle(con
 
 ```csharp
 "ConnectionStrings": {
-"OracleDatabase": "Data Source=152.24.64.51:1521/MyDbName;PERSIST SECURITY INFO=True;User Id=MyUser;Password=MyPass;Min Pool Size=50;Connection Lifetime=120;Connection Timeout=60;Incr Pool Size=5;Decr Pool Size=2;",
+"OracleDatabase": "Data Source=172.0.0.1:1521/DbName;PERSIST SECURITY INFO=True;User Id=MyUser;Password=MyPass;Pooling=true;Min Pool Size=1;Max Pool Size=50;Incr Pool Size=5;Connection Lifetime=180",
 }
 ```
+`کانکشن بالا بصورت بهینه ایجاد شده است و تغییر مقادیر آن ممکن است باعث بروز خطا در اتصال به دیتابیس شود`  
+
 در بخش Repository نیز کافی است شبیه به کد زیر که بین دیتابیس ‌های مختلف مشترک است با دیتابیس کار بکنید و بطور مثال رکورد خود را در دیتابیس اضافه کنید.  
 
 ```csharp
@@ -85,6 +87,69 @@ public class LogSenderRepository : ILogSenderRepository
 
             await context.SaveChangesAsync();
         }
+    }
+}
+```
+
+نکته مهم: `استفاده از کتابخانه بالا در بخش SaveChangeAsync باعث 100 درصد شدن cpu در بعضی از مواقع می‌شود و پیشنهاد می‌شود از روش زیر استفاده شود`  
+
+خطا:  
+```csharp
+Oracle error ORA-12571 encountered
+ ---> OracleInternal.Network.NetworkException (0x80004005): Oracle error ORA-12571 encountered
+ ---> System.Net.Sockets.SocketException (110): Connection timed out
+```
+
+در روش جایگزین از این کتابخانه استفاده می‌شود:  
+
+```csharp
+<PackageReference Include="Oracle.ManagedDataAccess.Core" Version="3.21.140" />
+```
+
+و سپس بصورت مستقیم کوئری نوشته می‌شود. همچنین برای تبدیل یک کلاس به کوئری Insert نیز از روش زیر و جلوگیری از بروز خطا در آن نیز یک کلاس بصورت خودکار به کوئری تبدیل شده است.  
+در انتها اگر خطا عدم اتصال به دیتابیس نیز دریافت شود 3 بار تلاش مجدد نیز در کد قرار داده شده است.  
+
+```csharp
+private async Task SaveUsingOracleSingleCopyAsync(string destTableName, PreparedLog item, int retry = 3)
+{
+    await using var connection = new OracleConnection(_connectionString);
+
+    try
+    {
+        await using var command = connection.CreateCommand();
+
+        await connection.OpenAsync();
+
+        var columnNames = string.Join(',', typeof(PreparedLog).GetProperties().Select(p => $"{p.Name}"));
+
+        var parameterPlaceholders = string.Join(',', typeof(PreparedLog).GetProperties().Select(p => $":{p.Name}"));
+
+        command.CommandText = $"INSERT INTO {BourseSchema}.{destTableName} ({columnNames}) VALUES ({parameterPlaceholders})";
+
+        foreach (var property in typeof(PreparedLog).GetProperties())
+        {
+            command.Parameters.Add(property.Name, property.GetValue(item));
+        }
+
+        await command.ExecuteNonQueryAsync();
+    }
+    catch (OracleException e)
+    {
+        _logger.LogWarning(e, "retry on send to bourse");
+
+        if (e.Number is 12570 or 03135 or 12571)
+        {
+            if (retry == 0)
+                throw new AppException("ex on SaveUsingOracleSingleCopy after 3 time retry", e);
+
+            await SaveUsingOracleSingleCopyAsync(destTableName, item, retry - 1);
+        }
+
+        throw;
+    }
+    finally
+    {
+        await connection.CloseAsync();
     }
 }
 ```
