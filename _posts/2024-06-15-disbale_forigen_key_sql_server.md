@@ -1,5 +1,5 @@
 ---
-title: "غیرفعال سازی کلید چک کردن کلید خارجی در SQL Server"
+title: "غیرفعال سازی چک کردن کلید خارجی در SQL Server"
 categories:
   - Sql
 tags:
