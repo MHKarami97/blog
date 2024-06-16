@@ -15,19 +15,19 @@ tags:
 برای این کار ابتدا برنچ مقصد خود که می‌خواهید تغییر را به آن منتقل کنید را با گزینه CheckOut انتخاب کنید.  
 
 <p align="center" >
-  <img src="/assets/img/cherryPick1.png" alt="mhkarami97" width="600" />
+  <img src="/assets/img/cherryPick1.jpg" alt="mhkarami97" width="600" />
 </p>
 
 اکنون از قسمت پایین چپ و یا کلید `Alt+F9` بخش `Git` را باز کنید و سپس بر روی کامیتی که می‌خواهید راست کلیک کنید و گزینه `Cherry Pick` را انتخاب کنید.  
 
 <p align="center" >
-  <img src="/assets/img/cherryPick2.png" alt="mhkarami97" width="600" />
+  <img src="/assets/img/cherryPick2.jpg" alt="mhkarami97" width="600" />
 </p>
 
 اکنون اگر به بخش Push تغییرات بروید، کامیت هایی که انتخاب کرده اید را مشاهده می‌کنید.  اگر می‌خواهید دوباره تغییری بر روی این کامیت ها بدهید، کافی است گزینه Cancel را انتخاب کنید تا تغییرات به بخش ChangeList ها اضافه شود.  
 
 <p align="center" >
-  <img src="/assets/img/cherryPick3.png" alt="mhkarami97" width="600" />
+  <img src="/assets/img/cherryPick3.jpg" alt="mhkarami97" width="600" />
 </p>
 
 اطلاعات بیشتر:  

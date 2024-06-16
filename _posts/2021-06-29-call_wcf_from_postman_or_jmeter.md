@@ -16,13 +16,13 @@ tags:
 ابتدا توسط ابزار  WCF Test Client که بعد از نصب Visual Studio داخل محل نصب اون اضافه میشه، سرویس خودتون رو اضافه کنید.
 
 <p align="center" >
-  <img src="/assets/img/wcf1.png" alt="mhkarami97" width="600" />
+  <img src="/assets/img/wcf1.jpg" alt="mhkarami97" width="600" />
 </p>
 
 حالا یکبار بر روی Invoke کلیک کنید و بعد از قسمت پایین بر روی xml کلیک کنید.
 
 <p align="center" >
-  <img src="/assets/img/wcf2.png" alt="mhkarami97" width="600" />
+  <img src="/assets/img/wcf2.jpg" alt="mhkarami97" width="600" />
 </p>
 
 حالا برای فراخونی این سرویس توسط Postman ابتدا آدرس اصلی سرویس خودتون رو اضافه کنید و نوع فراخونی رو هم بر روی Post قرار بدید.  
@@ -35,7 +35,7 @@ SOAPAction : http://tempuri.org/IService1/GetData
 ```
 
 <p align="center" >
-  <img src="/assets/img/wcf3.png" alt="mhkarami97" width="600" />
+  <img src="/assets/img/wcf3.jpg" alt="mhkarami97" width="600" />
 </p>
 
 داخل عکس بالا مقدار SOAP Action از عکس دوم بخش Request و آیتم Action بدست اومده
@@ -49,11 +49,11 @@ SOAPAction : http://tempuri.org/IService1/GetData
 همچنین بخش Header رو هم از کد کپی شده پاک کنید.  
 
 <p align="center" >
-  <img src="/assets/img/wcf4.png" alt="mhkarami97" width="600" />
+  <img src="/assets/img/wcf4.jpg" alt="mhkarami97" width="600" />
 </p>
 
 حالا با فراخونی این سرویس خروجی مورد نظر خودتون رو مشاهده میکنید.
 
 <p align="center" >
-  <img src="/assets/img/wcf5.png" alt="mhkarami97" width="600" />
+  <img src="/assets/img/wcf5.jpg" alt="mhkarami97" width="600" />
 </p>

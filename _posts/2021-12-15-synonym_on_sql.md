@@ -62,7 +62,7 @@ GRANT SELECT ON [dbo].[MyNewTable] TO [myUser]
 ```
 
 <p align="center" >
-  <img src="/assets/img/synonym.png" alt="mhkarami97" width="600" />
+  <img src="/assets/img/synonym.jpg" alt="mhkarami97" width="600" />
 </p>
 
 بعد از ساخته شدن نیز شبیه به دیگر شی‌های دیتابیس می‌توانید از synonym ساخته شده استفاده کنید:  

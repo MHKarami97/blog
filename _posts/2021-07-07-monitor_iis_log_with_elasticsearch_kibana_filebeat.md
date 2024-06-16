@@ -26,7 +26,7 @@ java --version
 برای اینکه مطمئن بشید قابلیت لاگ برای iis فعال هست هم میتونید از قسمت زیر اقدام کنید:  
 
 <p align="center" >
-  <img src="/assets/img/iis_log.png" alt="mhkarami97" width="600" />
+  <img src="/assets/img/iis_log.jpg" alt="mhkarami97" width="600" />
 </p>
 
 [اطلاعات بیشتر درباره لاگ](https://docs.microsoft.com/en-us/iis/manage/provisioning-and-managing-iis/managing-iis-log-file-storage)  
@@ -105,7 +105,7 @@ Start filebeat
 [tools](http://localhost:5601/app/home#/tutorial_directory) 
 
 <p align="center" >
-  <img src="/assets/img/kibana.png" alt="mhkarami97" width="600" />
+  <img src="/assets/img/kibana.jpg" alt="mhkarami97" width="600" />
 </p>
 
 یکی از ابزارهای خوب دیگه برای مدیریت لاگ، ابزاری با اسم logstash هستش.  

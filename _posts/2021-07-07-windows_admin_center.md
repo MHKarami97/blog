@@ -13,7 +13,7 @@ tags:
 یکی از ابزارهای خوب ماکروسافت برای مدیریت سرورها، ابزاری به اسم Windows Admin Center هستش، توسط این ابزار میتونید سرورهای مختلف روی شبکه رو کنترل کنید و حتی به اونها ریموت هم بزنید.  
 
 <p align="center" >
-  <img src="/assets/img/wac.png" alt="mhkarami97" width="600" />
+  <img src="/assets/img/wac.jpg" alt="mhkarami97" width="600" />
 </p>
 
 از لینک زیر میتونید این ابزار رو دانلود کنید:  

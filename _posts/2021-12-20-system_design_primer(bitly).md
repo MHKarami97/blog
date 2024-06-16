@@ -70,7 +70,7 @@ tags:
 نمای کلی سیستم:  
 
 <p align="center" >
-  <img src="/assets/img/system_bitly.png" alt="mhkarami97" width="600" />
+  <img src="/assets/img/system_bitly.jpg" alt="mhkarami97" width="600" />
 </p>
 
 ### طراحی هسته سیستم

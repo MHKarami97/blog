@@ -84,13 +84,13 @@ return items;
 اطلاعات بیشتر درباره کالکشن ها:  
 
 <p align="center" >
-  <img src="/assets/img/collections1.png" alt="mhkarami97" width="600" />
+  <img src="/assets/img/collections1.jpg" alt="mhkarami97" width="600" />
 </p>
 
 زمان درست استفاده از انواع کالکشن ها:  
 
 <p align="center" >
-  <img src="/assets/img/collections2.png" alt="mhkarami97" width="600" />
+  <img src="/assets/img/collections2.jpg" alt="mhkarami97" width="600" />
 </p>
 
 اطلاعات بیشتر:  

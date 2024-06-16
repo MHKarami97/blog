@@ -20,7 +20,7 @@ tags:
 [wikipedia](https://en.wikipedia.org/wiki/Two-phase_commit_protocol)  
 
 <p align="center" >
-  <img src="/assets/img/tpc.png" alt="mhkarami97" width="600" />
+  <img src="/assets/img/tpc.jpg" alt="mhkarami97" width="600" />
 </p>
 
 برای پیاده سازی راحت تر این روش یک Interface با نام `IEnlistmentNotification` در زبان .net ایجاد شده است که موارد مورد نیاز برای این کار را پیاده سازی می‌کند.  

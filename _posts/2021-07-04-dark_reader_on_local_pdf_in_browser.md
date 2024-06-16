@@ -17,7 +17,7 @@ tags:
 حالت افزونه رو هم بر روی Filter+ قرار بدید.  
 
 <p align="center" >
-  <img src="/assets/img/darkReader.png" alt="mhkarami97" width="600" />
+  <img src="/assets/img/darkReader.jpg" alt="mhkarami97" width="600" />
 </p>
 
 برای دانلود افزونه هم از لینک زیر میتونید اقدام کنید:  

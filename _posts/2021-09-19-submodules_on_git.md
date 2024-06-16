@@ -22,32 +22,32 @@ git submodule add https://github.com/MHKarami97/Submodules
 در کد بالا قسمت بعد از `add` آدرس ماژول شما هست که میخواید به پروژه فعلی اضافه کنید.  
 
 <p align="center" >
-  <img src="/assets/img/submodules2-min.png" alt="mhkarami97" width="600" />
+  <img src="/assets/img/submodules2-min.jpg" alt="mhkarami97" width="600" />
 </p>
 
 با این کار پروژه ای که لینکش رو در بالا وارد کردید و همچنین فایل `gitmodules` به پروژه شما اضافه میشه.  
 این فایل دوم در واقع یک مپ بین فایل لوکال و ریموت submodules هست.  
 
 <p align="center" >
-  <img src="/assets/img/submodules3-min.png" alt="mhkarami97" width="600" />
+  <img src="/assets/img/submodules3-min.jpg" alt="mhkarami97" width="600" />
 </p>
 
 برای اضافه کردن یک ماژول دیگه هم میتونید به همین صورت عمل کنید:  
 
 <p align="center" >
-  <img src="/assets/img/submodules4-min.png" alt="mhkarami97" width="600" />
+  <img src="/assets/img/submodules4-min.jpg" alt="mhkarami97" width="600" />
 </p>
 
 بعد از اینکار تغییرات گیت برای پروژه اصلی بصورت زیر نشون داده میشه که میتونید کامیت کنید:  
 
 <p align="center" >
-  <img src="/assets/img/submodules5-min.png" alt="mhkarami97" width="600" />
+  <img src="/assets/img/submodules5-min.jpg" alt="mhkarami97" width="600" />
 </p>
 
 حالا اگه تغییری در فایل های ماژول ها بدید، تغییرات اونها هم در پروژه اصلی و هم پروژه های ماژول نشون داده میشه:  
 
 <p align="center" >
-  <img src="/assets/img/submodules6-min.png" alt="mhkarami97" width="600" />
+  <img src="/assets/img/submodules6-min.jpg" alt="mhkarami97" width="600" />
 </p>
 
 تنها نکته ای که هست اینه که برای کامیت اول باید تغییرات رو در ماژول ها کامیت کنید و بعد اجازه کامیت در پروژه اصلی رو دارید.  
@@ -55,7 +55,7 @@ git submodule add https://github.com/MHKarami97/Submodules
 اگر یکی از ماژول تغییر کرده باشن، میتونید فقط اون پروژه رو pull کنید:  
 
 <p align="center" >
-  <img src="/assets/img/submodules7-min.png" alt="mhkarami97" width="600" />
+  <img src="/assets/img/submodules7-min.jpg" alt="mhkarami97" width="600" />
 </p>
 
 برای کلون کردن پروژه اصلی که از ماژول های دیگه داخلش استفاده شده، علاوه بر دستور `git clone ...` که فایل های پروژه اصلی رو میگیره، نیاز به اجرای دستور زیر هم هست:  
@@ -63,7 +63,7 @@ git submodule add https://github.com/MHKarami97/Submodules
 `git submodule init`  
 
 <p align="center" >
-  <img src="/assets/img/submodules8-min.png" alt="mhkarami97" width="600" />
+  <img src="/assets/img/submodules8-min.jpg" alt="mhkarami97" width="600" />
 </p>
 
 و سپس برای آپدیت کردن و دریافت آخرین نسخه ماژول ها دستور زیر رو وارد کنید:  
@@ -71,13 +71,13 @@ git submodule add https://github.com/MHKarami97/Submodules
 `git submodule update`
 
 <p align="center" >
-  <img src="/assets/img/submodules9-min.png" alt="mhkarami97" width="600" />
+  <img src="/assets/img/submodules9-min.jpg" alt="mhkarami97" width="600" />
 </p>
 
 ماژول های در ادیتور Rider :  
 
 <p align="center" >
-  <img src="/assets/img/submodules10-min.png" alt="mhkarami97" width="600" />
+  <img src="/assets/img/submodules10-min.jpg" alt="mhkarami97" width="600" />
 </p>
 
 با این کار پروژه شما آماده استفاده هست.  
