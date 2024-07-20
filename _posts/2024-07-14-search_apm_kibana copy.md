@@ -18,14 +18,18 @@ tags:
 سپس کافی است از بخش Services سمت راست دوباره به سیستمی که خطا به آن است بروید و به سربرگ Transactions بروید.  
 اکنون اگر بصورت زیر مقدار پیدا شده را جستجو کنید Trace کامل مورد به خطا خورده نمایش داده می‌شود.  
 
- > trace.id : "7207b815e8c77695eb66dfbff3bb9aae"
+```csharp
+trace.id : "7207b815e8c77695eb66dfbff3bb9aae"
+```
 
 ![mhkarami97](/assets/img/apmSearch1.jpg)  
 
 برای پیدا کردن Trace کاملی که دارای تگ دلخواه شما است نیز می‌توانید بصورت زیر عمل کنید.  
 به بخش Discover بروید و نام تگ خود را جستجو کنید:  
 
- > labels.Order_ChangeAssetCustomerCode:  "4"
+```csharp
+labels.Order_ChangeAssetCustomerCode:  "4"
+```
 
 ![mhkarami97](/assets/img/apmSearch2.jpg)  
 
