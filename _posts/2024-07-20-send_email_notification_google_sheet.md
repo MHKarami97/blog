@@ -14,6 +14,11 @@ tags:
 در فایل ایجاد شده کد زیر را قرار دهید.   
 
 ```csharp
+function onOpen(e) {
+   installTrigger();
+};
+
+// Function to install the onEdit trigger
 function installTrigger() {
   const sheet = SpreadsheetApp.getActiveSpreadsheet();
   ScriptApp.newTrigger('sendEmailOnEdit')
@@ -22,7 +27,9 @@ function installTrigger() {
            .create();
 }
 
+// Function to send email on edit
 function sendEmailOnEdit(e) {
+  // Get the active spreadsheet and sheet
   const sheet = e.source.getActiveSheet();
   const range = e.range;
   const row = range.getRow();
@@ -30,22 +37,40 @@ function sendEmailOnEdit(e) {
   const oldValue = e.oldValue;
   const newValue = e.value;
   const changeType = getChangeType(e);
+  const headerRange = sheet.getRange(1,1,1,sheet.getLastColumn()).getValues()[0];
+  const header = headerRange[column-1];
+
+  if(header !== 'توضیح'){
+    return;
+  }
+
+  // Get all user emails with access to the spreadsheet
   const userEmails = getAllUserEmails();
 
-  const subject = 'Google Sheet Change Notification';
-  const body = `A change was made to your Google Sheet:\n\n` +
-               `Change Type: ${changeType}\n` +
-               `Sheet Name: ${sheet.getName()}\n` +
-               `Cell: ${range.getA1Notation()}\n` +
-               `Old Value: ${oldValue}\n` +
-               `New Value: ${newValue}\n` +
-               `Edited By: ${Session.getActiveUser().getEmail()}\n`;
+  // Create the email subject and body
+  const subject = 'Life';
 
+    const body = `
+    <div style="direction: rtl; text-align: right;font-family: Tahoma;">
+      <p>نوع تغییر: ${changeType}</p>
+      <p>نام شیت: ${sheet.getName()}</p>
+      <p>ردیف: ${row}</p>
+      <p>مقدار: ${newValue}</p>
+      <p>ویرایش توسط: ${Session.getActiveUser().getEmail()}</p>
+    </div>
+  `;             
+
+  //Send the email to all users
   userEmails.forEach(email => {
-    MailApp.sendEmail(email, subject, body);
-  });
+    MailApp.sendEmail({
+      to: email,
+      subject: subject,
+      htmlBody: body
+    });
+ });
 }
 
+// Function to determine the type of change
 function getChangeType(e) {
   const range = e.range;
   const sheet = e.source.getActiveSheet();
@@ -53,29 +78,26 @@ function getChangeType(e) {
   const lastColumn = sheet.getLastColumn();
 
   if (range.getRow() > lastRow - 1 && range.getLastRow() == lastRow) {
-    return 'Addition';
+    return 'جدید';
   } else if (e.oldValue === undefined) {
-    return 'Deletion';
+    return 'حذف';
   } else {
-    return 'Update';
+    return 'ویرایش';
   }
 }
 
+// Function to get all user emails with access to the spreadsheet
 function getAllUserEmails() {
   const sheet = SpreadsheetApp.getActiveSpreadsheet();
   const editors = sheet.getEditors();
-  const owners = sheet.getOwners();
+  //const owner = sheet.getOwner();
   
   const emails = new Set();
 
   editors.forEach(editor => emails.add(editor.getEmail()));
-  owners.forEach(owner => emails.add(owner.getEmail()));
+  //emails.add(owner.getEmail());
 
   return Array.from(emails);
-}
-
-function onOpen() {
-  installTrigger();
 }
 ```
 
