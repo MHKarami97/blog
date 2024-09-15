@@ -100,7 +100,7 @@ namespace My
 
                 if (foundedData == null || foundedData.HasErrors)
                 {
-                    throw new UnauthorizedAccessException("کاربری با این نام کاربری و رمز عبور پیدا نشد");
+                    throw new UnauthorizedAccessException("not found");
                 }
 
                 return foundedData["IsExist"].SafeCast<bool>();
