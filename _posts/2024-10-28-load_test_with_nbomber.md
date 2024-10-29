@@ -250,10 +250,26 @@ public class ApiTest(ApiModel apiModel, LoadTestModel loadConfig, CreatorRule cr
 
     protected override ScenarioProps CreateStep()
     {
-        return Scenario.Create(loadConfig.Name, async _ =>
+        return Scenario.Create(loadConfig.Name, async context =>
             {
                 try
                 {
+                    context.Logger.Information("the current session id {0}", context.TestInfo.SessionId);
+
+                    if (context.InvocationNumber > 10)
+                    {
+                        context.Logger.Debug("the current Scenario copy was invoked more than 10 times");
+                    }
+
+                    if (context.NodeInfo.CurrentOperation == OperationType.Bombing)
+                    {
+                        context.Logger.Debug("Bombing!!!");
+                    }
+                    else if (context.NodeInfo.CurrentOperation == OperationType.WarmUp)
+                    {
+                        context.Logger.Debug("Warm Up!!!");
+                    }
+            
                     var model = _creator.Build();
                     
                     var request = Http.CreateRequest(apiModel.Method, apiModel.Address)
@@ -282,13 +298,19 @@ public class ApiTest(ApiModel apiModel, LoadTestModel loadConfig, CreatorRule cr
                     return Response.Fail(message: ex.Message);
                 }
             })
-            .WithClean(_ =>
+            .WithInit(context =>
+            {
+                context.Logger.Information("init");
+
+                return Task.CompletedTask;
+            })
+            .WithClean(context =>
             {
                 try
                 {
                     _httpClient.Dispose();
 
-                    Console.WriteLine("httpClient disposed after test");
+                    context.Logger.Information("cleaned");
                 }
                 catch (Exception e)
                 {
