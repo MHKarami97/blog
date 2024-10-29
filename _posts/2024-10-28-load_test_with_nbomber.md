@@ -319,6 +319,7 @@ public class ApiTest(ApiModel apiModel, LoadTestModel loadConfig, CreatorRule cr
 
                 return Task.CompletedTask;
             })
+            .WithRestartIterationOnFail(true)
             .WithWarmUpDuration(loadConfig.WarmUp)
             .WithMaxFailCount(loadConfig.MaxFailCount)
             .WithLoadSimulations(
