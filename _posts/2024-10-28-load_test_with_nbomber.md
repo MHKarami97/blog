@@ -350,3 +350,183 @@ public class ApiTest(ApiModel apiModel, LoadTestModel loadConfig, CreatorRule cr
     }
 }
 ```
+
+طبق تجربه کدی که خودتان برای لود نوشته باشید بهتر از کتابخانه‌های دیگر جوابگو است. بطور مثال می‌توانید از کد زیر استفاده کنید:  
+
+```csharp
+using System.Collections.Concurrent;
+using System.Diagnostics;
+using Flurl.Http;
+using LoadTest.Creator;
+using LoadTest.Model;
+using LoadTest.Model.LoadTestTypes;
+using LoadTest.Model.OutPut;
+using NBomber.Contracts;
+
+namespace LoadTest.Test;
+
+public class CustomApiTest(ApiModel apiModel, BaseLoadTestModel baseLoadTestModel, IInputModelCreator creator) : BaseTest
+{
+    protected override ScenarioProps CreateStep()
+    {
+        if (baseLoadTestModel.LoadTestType != LoadTestType.Custom || baseLoadTestModel is not CustomLoadTestModel)
+            throw new ArgumentException("not valid param", nameof(baseLoadTestModel));
+
+        return null!;
+    }
+
+    protected override async Task RunStep(ScenarioProps props)
+    {
+        try
+        {
+            var responses = new ConcurrentQueue<string>();
+            var responseTimes = new ConcurrentQueue<TimeSpan>();
+            var errors = new ConcurrentQueue<Exception>();
+
+            if (baseLoadTestModel is not CustomLoadTestModel customLoadTestModel)
+                throw new ArgumentException("not valid param", nameof(baseLoadTestModel));
+
+            var stopwatch = new Stopwatch();
+            stopwatch.Start();
+
+            var threadCount = customLoadTestModel.ThreadCount;
+            var received500Error = false;
+
+            Console.Clear();
+            Console.WriteLine("Wait Until Test Complete...");
+
+            var tasks = new List<Task>();
+            do
+            {
+                if (received500Error)
+                    break;
+
+                for (var i = 0; i < threadCount; i++)
+                {
+                    await Task.Delay(1);
+
+                    tasks.Add(Task.Run(async () =>
+                    {
+                        var localStopwatch = new Stopwatch();
+                        localStopwatch.Start();
+
+                        try
+                        {
+                            OutPutModel response;
+                            var model = creator.Build();
+
+                            switch (apiModel.Method)
+                            {
+                                case "GET":
+                                    response = await apiModel.Address
+                                        .WithTimeout(customLoadTestModel.TimeOut)
+                                        .WithHeader("Content-Type", "application/json")
+                                        .SetQueryParams(model)
+                                        .GetJsonAsync<OutPutModel>();
+                                    break;
+
+                                case "POST":
+                                    response = await apiModel.Address
+                                        .WithTimeout(customLoadTestModel.TimeOut)
+                                        .WithHeader("Content-Type", "application/json")
+                                        .PostJsonAsync(model)
+                                        .ReceiveJson<OutPutModel>();
+                                    break;
+
+                                default:
+                                    throw new ArgumentException("not valid api type", nameof(apiModel.Method));
+                            }
+
+                            responses.Enqueue(response.IsSuccess ? "ok" : "error");
+                        }
+                        catch (FlurlHttpException e)
+                        {
+                            received500Error = true;
+
+                            if (customLoadTestModel.ShowErrors)
+                            {
+                                var error = await e.GetResponseStringAsync() ?? e.Message;
+
+                                Console.WriteLine(error);
+                            }
+
+                            errors.Enqueue(e);
+                            responses.Enqueue("error");
+                        }
+                        catch (Exception ex)
+                        {
+                            if (customLoadTestModel.ShowErrors)
+                                Console.WriteLine(ex);
+
+                            errors.Enqueue(ex);
+                            responses.Enqueue("error");
+                        }
+
+                        localStopwatch.Stop();
+                        responseTimes.Enqueue(localStopwatch.Elapsed);
+                    }));
+                }
+
+                await Task.WhenAll(tasks);
+
+                if (customLoadTestModel.AutoIncreaseThreadCount && !received500Error)
+                {
+                    threadCount += customLoadTestModel.IncreaseThreadCount;
+
+                    Console.WriteLine("----------");
+                    Console.WriteLine("----------");
+                    Console.WriteLine($"Thread Count: {threadCount}");
+                    Console.WriteLine($"Total responses: {responses.Count}");
+                    Console.WriteLine($"Total exception: {errors.Count}");
+                    Console.WriteLine("----------");
+                    Console.WriteLine($"Avg responseTime: {responseTimes.Average(r => r.TotalMilliseconds)}");
+                    Console.WriteLine($"Max responseTime: {responseTimes.Max(r => r.TotalMilliseconds)}");
+                    Console.WriteLine($"Min responseTime: {responseTimes.Min(r => r.TotalMilliseconds)}");
+                    Console.WriteLine("----------");
+                    Console.WriteLine($"Total ok responses: {responses.Count(r => r == "ok")}");
+                    Console.WriteLine($"Total error responses: {responses.Count(r => r == "error")}");
+                    Console.WriteLine("----------");
+                    Console.WriteLine("----------");
+                }
+            } while (customLoadTestModel.AutoIncreaseThreadCount && !received500Error);
+
+            await Task.WhenAll(tasks);
+            stopwatch.Stop();
+
+            Console.Clear();
+            Console.WriteLine("----------");
+            Console.WriteLine($"Thread Count: {threadCount}");
+            Console.WriteLine($"Total responses: {responses.Count}");
+            Console.WriteLine($"Total exception: {errors.Count}");
+            Console.WriteLine("----------");
+            Console.WriteLine($"Total elapsed time: {stopwatch.Elapsed}");
+            Console.WriteLine($"Avg responseTime: {responseTimes.Average(r => r.TotalMilliseconds)}");
+            Console.WriteLine($"Max responseTime: {responseTimes.Max(r => r.TotalMilliseconds)}");
+            Console.WriteLine($"Min responseTime: {responseTimes.Min(r => r.TotalMilliseconds)}");
+            Console.WriteLine("----------");
+            Console.WriteLine($"Total ok responses: {responses.Count(r => r == "ok")}");
+            Console.WriteLine($"Total error responses: {responses.Count(r => r == "error")}");
+            Console.WriteLine("----------");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+    }
+}
+```
+
+در کد بالا از کانفیگ زیر استفاده شده است:  
+
+```csharp
+new CustomLoadTestModel
+{
+    Name = name,
+    ThreadCount = 1000,
+    IncreaseThreadCount = 100,
+    AutoIncreaseThreadCount = true,
+    ShowErrors = true
+};
+```
+
+در این کانفیگ ابتدا 1000 ترد برای ارسال همزمان ایجاد می‌شود. در صورتی که تمام آنها با موفقیت جواب داده شوند 100 عدد بر روی آن قرار داده می‌شود. این سناریو تا زمانی که فراخوانی api با خطا مواجه شود ادامه پیدا می‌کند.  
