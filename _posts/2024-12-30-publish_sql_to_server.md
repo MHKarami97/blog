@@ -12,7 +12,7 @@ tags:
 
 برای ایجاد پروژه دیتابیسی می‌توانید از لینک زیر کمک بگیرید:  
 
-[sqlproj]([/assets/img/sql-publish-1.jpg](https://learn.microsoft.com/en-us/sql/tools/sql-database-projects/tutorials/create-deploy-sql-project?view=sql-server-ver16&pivots=sq1-visual-studio))  
+[sqlproj](https://learn.microsoft.com/en-us/sql/tools/sql-database-projects/tutorials/create-deploy-sql-project?view=sql-server-ver16&pivots=sq1-visual-studio)  
 
 در ادامه فرض گرفته شده است که شما پروژه دیتابیسی دارید و اکنون نیاز به اعمال تغییرات جدید و پابلیش آن دارید.  
 
@@ -20,7 +20,7 @@ tags:
 در اولین مرحله تغییرات خود را در پروژه اعمال کنید.  
 دقت کنید که اگر چند پروژه دیتابیسی دارید و کوئری شما از هر دو استفاده می‌کند طبق لینک زیر می‌توانید به آن رفرنس بدهید و سپس در کد خود بطور مثال با [$(ArchiveDatabase)] به آن دسترسی داشته باشید.  
 
-[SQLCMD]([/assets/img/sql-publish-1.jpg](https://learn.microsoft.com/en-us/sql/tools/sql-database-projects/concepts/database-references?view=sql-server-ver16&pivots=sq1-visual-studio))  
+[SQLCMD](https://learn.microsoft.com/en-us/sql/tools/sql-database-projects/concepts/database-references?view=sql-server-ver16&pivots=sq1-visual-studio)  
 
 بعد از انجام تغییرات برای اطمینان از عدم وجود خطا یکبار پروژه خود را بیلد کنید.  
 در صورتی که خطایی در پروژه باشد در این بخش نمایش داده می‌شود. دقت کنید که نیاز است حتما هم Error و هم warning برطرف شود.
