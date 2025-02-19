@@ -199,4 +199,4 @@ FROM sys.foreign_keys AS fk
 JOIN sys.foreign_key_columns AS fc ON fk.object_id = fc.constraint_object_id;
 
 SELECT @sql;
-``
+```
