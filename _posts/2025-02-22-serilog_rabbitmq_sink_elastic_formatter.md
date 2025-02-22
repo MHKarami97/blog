@@ -12,7 +12,7 @@ tags:
 در بعضی مواقع یک سری از لاگ‌ها گم می‌شد و در پنل نهایی مشاهده نمی‌شد. بعد از بررسی‌های مختلف متوجه شدیم که خطا حتی در exchange RabbitMq هم نوشته نمی‌شود.  
 با توجه به اینکه سیستم APM داشت و خطاها در آن موجود بود دنبال نقطه اشتراکی بین این خطاها گشتیم که متوجه شدیم در تمام آن‌ها message موجود در Exception مقدار NULL دارد.  
 
-```net
+```csharp
 using Serilog;
 using Serilog.Formatting.Elasticsearch;
 
@@ -72,7 +72,7 @@ namespace Utility
 
 برای حل مشکل در لایه‌های دیگر تغییری داده شد که خطا حتما Message داشته باشد. برای اطمینان نیز کد بصورت زیر تغییر پیدا کرد تا در صورت خالی بودن مقدار پیش‌فرضی قرار داده شود.  
 
-```net
+```csharp
 public void Critical(Exception ex)
 {
     SerilogLogger.Fatal(ex, ex.Message ?? "Error");
