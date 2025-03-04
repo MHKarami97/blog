@@ -1,5 +1,5 @@
 ---
-title: "استفاده از Vault برای بجای AppSetting در .Net"
+title: "استفاده از Vault بجای AppSetting در .Net"
 categories:
   - Net
 tags:
