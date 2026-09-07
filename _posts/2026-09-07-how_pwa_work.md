@@ -1,5 +1,5 @@
 ---
-title: "PWA و Service Worker: از تاریخچه تا Offline-First واقعی"
+title: "PWA و Service Worker: از تاریخچه تا Offline First"
 categories:
   - Web
 tags:
